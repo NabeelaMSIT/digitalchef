@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.tagging.fields</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        <a href="digichef.tagging-module.html">Package&nbsp;tagging</a> ::
+        Module&nbsp;fields
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.tagging.fields-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="digichef.tagging.fields-module.html">Module digichef.tagging.fields</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">A custom Model Field for tagging.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.util.models=digichef.util.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">signals</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module digichef.tagging.fields=digichef.tagging.fields-module.html"><a title="digichef.tagging.fields" class="py-name" href="#" onclick="return doclink('link-2', 'fields', 'link-2');">fields</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">CharField</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module digichef.profiles.utils=digichef.profiles.utils-module.html,Module digichef.recommender.utils=digichef.recommender.utils-module.html,Module digichef.tagging.utils=digichef.tagging.utils-module.html"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-3', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt class="py-name">translation</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ugettext_lazy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">_</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package digichef.tagging=digichef.tagging-module.html"><a title="digichef.tagging" class="py-name" href="#" onclick="return doclink('link-4', 'tagging', 'link-4');">tagging</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module digichef.settings=digichef.settings-module.html,Module digichef.tagging.settings=digichef.tagging.settings-module.html,Module digichef.tagging.tests.settings=digichef.tagging.tests.settings-module.html,Module digichef.voting.tests.settings=digichef.voting.tests.settings-module.html"><a title="digichef.settings
+digichef.tagging.settings
+digichef.tagging.tests.settings
+digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink('link-5', 'settings', 'link-5');">settings</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="digichef.tagging" class="py-name" href="#" onclick="return doclink('link-6', 'tagging', 'link-4');">tagging</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-7', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Class digichef.tagging.models.Tag=digichef.tagging.models.Tag-class.html"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-8', 'Tag', 'link-8');">Tag</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name"><a title="digichef.tagging" class="py-name" href="#" onclick="return doclink('link-9', 'tagging', 'link-4');">tagging</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-10', 'utils', 'link-3');">utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Function digichef.tagging.utils.edit_string_for_tags()=digichef.tagging.utils-module.html#edit_string_for_tags"><a title="digichef.tagging.utils.edit_string_for_tags" class="py-name" href="#" onclick="return doclink('link-11', 'edit_string_for_tags', 'link-11');">edit_string_for_tags</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="TagField"></a><div id="TagField-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="TagField-toggle" onclick="return toggle('TagField');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html">TagField</a><tt class="py-op">(</tt><tt class="py-base-class">CharField</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TagField-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">    A "special" character field that actually works as a relationship to tags</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">    "under the hood". This exposes a space-separated string of tags, but does</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">    the splitting/reordering/etc. under the hood.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="TagField.__init__"></a><div id="TagField.__init__-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="TagField.__init__-toggle" onclick="return toggle('TagField.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.__init__-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">'max_length'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'max_length'</tt><tt class="py-op">,</tt> <tt class="py-number">255</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">        <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">'blank'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'blank'</tt><tt class="py-op">,</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Class digichef.tagging.fields.TagField=digichef.tagging.fields.TagField-class.html,Class digichef.tagging.forms.TagField=digichef.tagging.forms.TagField-class.html"><a title="digichef.tagging.fields.TagField
+digichef.tagging.forms.TagField" class="py-name" href="#" onclick="return doclink('link-12', 'TagField', 'link-12');">TagField</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method digichef.profiles.forms.ProfileForm.__init__()=digichef.profiles.forms.ProfileForm-class.html#__init__,Method digichef.simplejson.decoder.JSONDecoder.__init__()=digichef.simplejson.decoder.JSONDecoder-class.html#__init__,Method digichef.simplejson.encoder.JSONEncoder.__init__()=digichef.simplejson.encoder.JSONEncoder-class.html#__init__,Method digichef.tagging.fields.TagField.__init__()=digichef.tagging.fields.TagField-class.html#__init__,Method digichef.tagging.templatetags.tagging_tags.TagCloudForModelNode.__init__()=digichef.tagging.templatetags.tagging_tags.TagCloudForModelNode-class.html#__init__,Method digichef.tagging.templatetags.tagging_tags.TaggedObjectsNode.__init__()=digichef.tagging.templatetags.tagging_tags.TaggedObjectsNode-class.html#__init__,Method digichef.tagging.templatetags.tagging_tags.TagsForModelNode.__init__()=digichef.tagging.templatetags.tagging_tags.TagsForModelNode-class.html#__init__,Method digichef.tagging.templatetags.tagging_tags.TagsForObjectNode.__init__()=digichef.tagging.templatetags.tagging_tags.TagsForObjectNode-class.html#__init__,Method digichef.voting.managers.CoalesceWrapper.__init__()=digichef.voting.managers.CoalesceWrapper-class.html#__init__,Method digichef.voting.templatetags.voting_tags.DictEntryForItemNode.__init__()=digichef.voting.templatetags.voting_tags.DictEntryForItemNode-class.html#__init__,Method digichef.voting.templatetags.voting_tags.ScoreForObjectNode.__init__()=digichef.voting.templatetags.voting_tags.ScoreForObjectNode-class.html#__init__,Method digichef.voting.templatetags.voting_tags.ScoresForObjectsNode.__init__()=digichef.voting.templatetags.voting_tags.ScoresForObjectsNode-class.html#__init__,Method digichef.voting.templatetags.voting_tags.VoteByUserNode.__init__()=digichef.voting.templatetags.voting_tags.VoteByUserNode-class.html#__init__,Method digichef.voting.templatetags.voting_tags.VotesByUserNode.__init__()=digichef.voting.templatetags.voting_tags.VotesByUserNode-class.html#__init__,Method re.Scanner.__init__()=re.Scanner-class.html#__init__"><a title="digichef.profiles.forms.ProfileForm.__init__
+digichef.simplejson.decoder.JSONDecoder.__init__
+digichef.simplejson.encoder.JSONEncoder.__init__
+digichef.tagging.fields.TagField.__init__
+digichef.tagging.templatetags.tagging_tags.TagCloudForModelNode.__init__
+digichef.tagging.templatetags.tagging_tags.TaggedObjectsNode.__init__
+digichef.tagging.templatetags.tagging_tags.TagsForModelNode.__init__
+digichef.tagging.templatetags.tagging_tags.TagsForObjectNode.__init__
+digichef.voting.managers.CoalesceWrapper.__init__
+digichef.voting.templatetags.voting_tags.DictEntryForItemNode.__init__
+digichef.voting.templatetags.voting_tags.ScoreForObjectNode.__init__
+digichef.voting.templatetags.voting_tags.ScoresForObjectsNode.__init__
+digichef.voting.templatetags.voting_tags.VoteByUserNode.__init__
+digichef.voting.templatetags.voting_tags.VotesByUserNode.__init__
+re.Scanner.__init__" class="py-name" href="#" onclick="return doclink('link-13', '__init__', 'link-13');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="TagField.contribute_to_class"></a><div id="TagField.contribute_to_class-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="TagField.contribute_to_class-toggle" onclick="return toggle('TagField.contribute_to_class');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#contribute_to_class">contribute_to_class</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.contribute_to_class-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.contribute_to_class-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="digichef.tagging.fields.TagField
+digichef.tagging.forms.TagField" class="py-name" href="#" onclick="return doclink('link-14', 'TagField', 'link-12');">TagField</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method digichef.tagging.fields.TagField.contribute_to_class()=digichef.tagging.fields.TagField-class.html#contribute_to_class"><a title="digichef.tagging.fields.TagField.contribute_to_class" class="py-name" href="#" onclick="return doclink('link-15', 'contribute_to_class', 'link-15');">contribute_to_class</a></tt><tt class="py-op">(</tt><tt class="py-name">cls</tt><tt class="py-op">,</tt> <tt id="link-16" class="py-name" targets="Variable digichef.recommender.models.TestItem.name=digichef.recommender.models.TestItem-class.html#name,Variable digichef.tagging.models.Tag.name=digichef.tagging.models.Tag-class.html#name,Variable digichef.tagging.tests.models.Article.name=digichef.tagging.tests.models.Article-class.html#name,Variable digichef.tagging.tests.models.Link.name=digichef.tagging.tests.models.Link-class.html#name,Variable digichef.voting.tests.models.Item.name=digichef.voting.tests.models.Item-class.html#name"><a title="digichef.recommender.models.TestItem.name
+digichef.tagging.models.Tag.name
+digichef.tagging.tests.models.Article.name
+digichef.tagging.tests.models.Link.name
+digichef.voting.tests.models.Item.name" class="py-name" href="#" onclick="return doclink('link-16', 'name', 'link-16');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-comment"># Make this object the descriptor for field access.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt class="py-name">cls</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="digichef.recommender.models.TestItem.name
+digichef.tagging.models.Tag.name
+digichef.tagging.tests.models.Article.name
+digichef.tagging.tests.models.Link.name
+digichef.voting.tests.models.Item.name" class="py-name" href="#" onclick="return doclink('link-17', 'name', 'link-16');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-comment"># Save tags back to the database post-save</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-name">signals</tt><tt class="py-op">.</tt><tt class="py-name">post_save</tt><tt class="py-op">.</tt><tt class="py-name">connect</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method digichef.tagging.fields.TagField._save()=digichef.tagging.fields.TagField-class.html#_save"><a title="digichef.tagging.fields.TagField._save" class="py-name" href="#" onclick="return doclink('link-18', '_save', 'link-18');">_save</a></tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">,</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="TagField.__get__"></a><div id="TagField.__get__-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="TagField.__get__-toggle" onclick="return toggle('TagField.__get__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#__get__">__get__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">instance</tt><tt class="py-op">,</tt> <tt class="py-param">owner</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.__get__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.__get__-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">        Tag getter. Returns an instance's tags if accessed on an instance, and</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        all of a model's tags if called on a class. That is, this model::</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">           class Link(models.Model):</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">               ...</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">               tags = TagField()</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">        Lets you do both of these::</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">           &gt;&gt;&gt; l = Link.objects.get(...)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">           &gt;&gt;&gt; l.tags</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">           'tag1 tag2 tag3'</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">           &gt;&gt;&gt; Link.tags</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">           'tag1 tag2 tag3 tag4'</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-comment"># Handle access on the model (i.e. Link.tags)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">instance</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-19" class="py-name"><a title="digichef.tagging.utils.edit_string_for_tags" class="py-name" href="#" onclick="return doclink('link-19', 'edit_string_for_tags', 'link-11');">edit_string_for_tags</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-20', 'Tag', 'link-8');">Tag</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Variable digichef.recommender.models.Recommender.objects=digichef.recommender.models.Recommender-class.html#objects,Variable digichef.registration.models.RegistrationProfile.objects=digichef.registration.models.RegistrationProfile-class.html#objects,Variable digichef.tagging.models.Tag.objects=digichef.tagging.models.Tag-class.html#objects,Variable digichef.tagging.models.TaggedItem.objects=digichef.tagging.models.TaggedItem-class.html#objects,Variable digichef.voting.models.Vote.objects=digichef.voting.models.Vote-class.html#objects"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-21', 'objects', 'link-21');">objects</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method digichef.tagging.models.TagManager.usage_for_model()=digichef.tagging.models.TagManager-class.html#usage_for_model"><a title="digichef.tagging.models.TagManager.usage_for_model" class="py-name" href="#" onclick="return doclink('link-22', 'usage_for_model', 'link-22');">usage_for_model</a></tt><tt class="py-op">(</tt><tt class="py-name">owner</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt id="link-23" class="py-name" targets="Variable digichef.recipes.models.Recipe.tags=digichef.recipes.models.Recipe-class.html#tags,Variable digichef.tagging.tests.models.FormTest.tags=digichef.tagging.tests.models.FormTest-class.html#tags"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-23', 'tags', 'link-23');">tags</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method digichef.tagging.fields.TagField._get_instance_tag_cache()=digichef.tagging.fields.TagField-class.html#_get_instance_tag_cache"><a title="digichef.tagging.fields.TagField._get_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-24', '_get_instance_tag_cache', 'link-24');">_get_instance_tag_cache</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-25" class="py-name"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-25', 'tags', 'link-23');">tags</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">instance</tt><tt class="py-op">.</tt><tt class="py-name">pk</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method digichef.tagging.fields.TagField._set_instance_tag_cache()=digichef.tagging.fields.TagField-class.html#_set_instance_tag_cache"><a title="digichef.tagging.fields.TagField._set_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-26', '_set_instance_tag_cache', 'link-26');">_set_instance_tag_cache</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="digichef.tagging.fields.TagField._set_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-27', '_set_instance_tag_cache', 'link-26');">_set_instance_tag_cache</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                    <tt class="py-name">instance</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="digichef.tagging.utils.edit_string_for_tags" class="py-name" href="#" onclick="return doclink('link-28', 'edit_string_for_tags', 'link-11');">edit_string_for_tags</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-29', 'Tag', 'link-8');">Tag</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-30', 'objects', 'link-21');">objects</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method digichef.tagging.models.TagManager.get_for_object()=digichef.tagging.models.TagManager-class.html#get_for_object"><a title="digichef.tagging.models.TagManager.get_for_object" class="py-name" href="#" onclick="return doclink('link-31', 'get_for_object', 'link-31');">get_for_object</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="digichef.tagging.fields.TagField._get_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-32', '_get_instance_tag_cache', 'link-24');">_get_instance_tag_cache</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="TagField.__set__"></a><div id="TagField.__set__-def"><a name="L64"></a><tt class="py-lineno"> 64</tt> <a class="py-toggle" href="#" id="TagField.__set__-toggle" onclick="return toggle('TagField.__set__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#__set__">__set__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">instance</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.__set__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.__set__-expanded"><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">        Set an object's tags.</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">instance</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">(</tt><tt class="py-name">_</tt><tt class="py-op">(</tt><tt class="py-string">'%s can only be set on instances.'</tt><tt class="py-op">)</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="digichef.recommender.models.TestItem.name
+digichef.tagging.models.Tag.name
+digichef.tagging.tests.models.Article.name
+digichef.tagging.tests.models.Link.name
+digichef.voting.tests.models.Item.name" class="py-name" href="#" onclick="return doclink('link-33', 'name', 'link-16');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-34" class="py-name"><a title="digichef.settings
+digichef.tagging.settings
+digichef.tagging.tests.settings
+digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink('link-34', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Variable digichef.tagging.settings.FORCE_LOWERCASE_TAGS=digichef.tagging.settings-module.html#FORCE_LOWERCASE_TAGS"><a title="digichef.tagging.settings.FORCE_LOWERCASE_TAGS" class="py-name" href="#" onclick="return doclink('link-35', 'FORCE_LOWERCASE_TAGS', 'link-35');">FORCE_LOWERCASE_TAGS</a></tt> <tt class="py-keyword">and</tt> <tt class="py-name">value</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="digichef.tagging.fields.TagField._set_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-36', '_set_instance_tag_cache', 'link-26');">_set_instance_tag_cache</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">,</tt> <tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="TagField._save"></a><div id="TagField._save-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="TagField._save-toggle" onclick="return toggle('TagField._save');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#_save">_save</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment">#signal, sender, instance):</tt> </tt>
+</div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">        Save tags back to the database</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt id="link-37" class="py-name"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-37', 'tags', 'link-23');">tags</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="digichef.tagging.fields.TagField._get_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-38', '_get_instance_tag_cache', 'link-24');">_get_instance_tag_cache</a></tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">'instance'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-39" class="py-name"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-39', 'tags', 'link-23');">tags</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt id="link-40" class="py-name"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-40', 'Tag', 'link-8');">Tag</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-41', 'objects', 'link-21');">objects</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Method digichef.tagging.models.TagManager.update_tags()=digichef.tagging.models.TagManager-class.html#update_tags"><a title="digichef.tagging.models.TagManager.update_tags" class="py-name" href="#" onclick="return doclink('link-42', 'update_tags', 'link-42');">update_tags</a></tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">'instance'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-43', 'tags', 'link-23');">tags</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"> </tt>
+<a name="TagField.__delete__"></a><div id="TagField.__delete__-def"><a name="L82"></a><tt class="py-lineno"> 82</tt> <a class="py-toggle" href="#" id="TagField.__delete__-toggle" onclick="return toggle('TagField.__delete__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#__delete__">__delete__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">instance</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.__delete__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.__delete__-expanded"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">        Clear all of an object's tags.</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="digichef.tagging.fields.TagField._set_instance_tag_cache" class="py-name" href="#" onclick="return doclink('link-44', '_set_instance_tag_cache', 'link-26');">_set_instance_tag_cache</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="TagField._get_instance_tag_cache"></a><div id="TagField._get_instance_tag_cache-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="TagField._get_instance_tag_cache-toggle" onclick="return toggle('TagField._get_instance_tag_cache');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#_get_instance_tag_cache">_get_instance_tag_cache</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">instance</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField._get_instance_tag_cache-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField._get_instance_tag_cache-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        Helper: get an instance's tag cache.</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">,</tt> <tt class="py-string">'_%s_cache'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">attname</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="TagField._set_instance_tag_cache"></a><div id="TagField._set_instance_tag_cache-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="TagField._set_instance_tag_cache-toggle" onclick="return toggle('TagField._set_instance_tag_cache');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#_set_instance_tag_cache">_set_instance_tag_cache</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">instance</tt><tt class="py-op">,</tt> <tt class="py-param">tags</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField._set_instance_tag_cache-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField._set_instance_tag_cache-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">        Helper: set an instance's tag cache.</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">,</tt> <tt class="py-string">'_%s_cache'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">attname</tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-45', 'tags', 'link-23');">tags</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="TagField.get_internal_type"></a><div id="TagField.get_internal_type-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="TagField.get_internal_type-toggle" onclick="return toggle('TagField.get_internal_type');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#get_internal_type">get_internal_type</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.get_internal_type-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.get_internal_type-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'CharField'</tt> </tt>
+</div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="TagField.formfield"></a><div id="TagField.formfield-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="TagField.formfield-toggle" onclick="return toggle('TagField.formfield');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.tagging.fields.TagField-class.html#formfield">formfield</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TagField.formfield-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TagField.formfield-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-46" class="py-name"><a title="digichef.tagging" class="py-name" href="#" onclick="return doclink('link-46', 'tagging', 'link-4');">tagging</a></tt> <tt class="py-keyword">import</tt> <tt id="link-47" class="py-name" targets="Module digichef.profiles.forms=digichef.profiles.forms-module.html,Module digichef.recipes.forms=digichef.recipes.forms-module.html,Module digichef.registration.forms=digichef.registration.forms-module.html,Module digichef.tagging.forms=digichef.tagging.forms-module.html"><a title="digichef.profiles.forms
+digichef.recipes.forms
+digichef.registration.forms
+digichef.tagging.forms" class="py-name" href="#" onclick="return doclink('link-47', 'forms', 'link-47');">forms</a></tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">defaults</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'form_class'</tt><tt class="py-op">:</tt> <tt id="link-48" class="py-name"><a title="digichef.profiles.forms
+digichef.recipes.forms
+digichef.registration.forms
+digichef.tagging.forms" class="py-name" href="#" onclick="return doclink('link-48', 'forms', 'link-47');">forms</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="digichef.tagging.fields.TagField
+digichef.tagging.forms.TagField" class="py-name" href="#" onclick="return doclink('link-49', 'TagField', 'link-12');">TagField</a></tt><tt class="py-op">}</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">defaults</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method digichef.util.models.UserMeta.update()=digichef.util.models.UserMeta-class.html#update"><a title="digichef.util.models.UserMeta.update" class="py-name" href="#" onclick="return doclink('link-50', 'update', 'link-50');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="digichef.tagging.fields.TagField
+digichef.tagging.forms.TagField" class="py-name" href="#" onclick="return doclink('link-51', 'TagField', 'link-12');">TagField</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method digichef.tagging.fields.TagField.formfield()=digichef.tagging.fields.TagField-class.html#formfield"><a title="digichef.tagging.fields.TagField.formfield" class="py-name" href="#" onclick="return doclink('link-52', 'formfield', 'link-52');">formfield</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">defaults</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:32 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict Transitional//END"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+	<head>
+		
+		<link href="/media/css/newstyle.css" rel="stylesheet" media="all" />
+		<!--barrack slideshow -->
+		 <link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
+		<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
+    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
+	
+	<!--menu-->
+	
+	
+	<!--autocomplete search -->
+	
+	<!-- required stylesheet for TextboxList -->
+		<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+		<!-- required stylesheet for TextboxList.Autocomplete -->
+		<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+		
+			
+
+		<!-- required for TextboxList -->
+		<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
+				
+		<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
+		<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>		
+		
+		<!-- sample initialization -->
+		<script type="text/javascript" charset="utf-8">		
+			window.addEvent('load', function(){
+			/*
+				// Standard initialization
+				var t = new TextboxList('form_tags_input', {  });
+				t.add('Tag 1').add('Tag 2').add('Tag 3');
+				
+				// With custom adding keys 
+				var t2 = new TextboxList('form_tags_input_2', {bitsOptions:{editable:{addKeys: 188}}});
+				t2.add('Tag 1').add('Tag 2');
+				
+				// Autocomplete initialization
+				var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
+				t4.add('John Doe').add('Jane Roe');
+				
+				// sample data loading with json, but can be jsonp, local, etc. 
+				// the only requirement is that you call setValues with an array of this format:
+				// [
+				//	[id, bit_plaintext (on which search is performed), bit_html (optional, otherwise plain_text is used), autocomplete_html (html for the item displayed in the autocomplete suggestions dropdown)]
+				// ]
+				// read autocomplete.php for a JSON response exmaple
+				t4.container.addClass('textboxlist-loading');				
+				new Request.JSON({url: 'autocomplete.php', onSuccess: function(r){
+					t4.plugins['autocomplete'].setValues(r);
+					t4.container.removeClass('textboxlist-loading');
+				}}).send();				
+				*/
+				// Autocomplete with poll the server as you type
+				var t5 = new TextboxList('form_tags_input_4', {unique: true, plugins: {autocomplete: {
+					minLength: 3,
+					queryRemote: true,
+					remote: {url: 'autocomplete2.php'}
+				}}});
+				t5.add('John Doe').add('Jane Roe');
+				
+			});
+		</script>
+		
+		<!-- sample style -->
+		<style type="text/css" media="screen">
+			.form_tags { margin-bottom: 10px; }
+			
+			/* Setting widget width example */
+			.textboxlist { width: 400px; }
+			
+			/* Preloader for autocomplete */
+			.textboxlist-loading { background: url('images/spinner.gif') no-repeat 380px center; }
+			
+			/* Autocomplete results styling */
+			.form_friends .textboxlist-autocomplete-result { overflow: hidden; zoom: 1; }
+			.form_friends .textboxlist-autocomplete-result img { float: left; padding-right: 10px; }
+			
+			.note { color: #666; font-size: 90%; }
+			#footer { margin: 50px; text-align: center; }
+		</style>
+	
+	
+	
+	
+	
+	
+	
+	</head>	
+	
+	<body id="demo">
+	
+	<div id='ourWrap'>
+		
+		<div id='header'><img src="/media/img/logo.bmp" /></div>
+		
+		<div id="menu2" >
+	<ul>
+		<li><a href="#" class="current">home</a></li>
+		<li><a href="#">about us</a></li>
+		<li><a href="#">services</a></li>
+		<li><a href="#">solutions</a></li>
+		<li><a href="#">products</a></li>
+		<li><a href="#">contact us</a></li>								
+	</ul>
+		</div>	
+		
+		
+		<div id='ourElement'>
+		
+		
+				
+				<div id='signIn'>
+					<form method="post" action="{% url django.contrib.auth.views.login %}">
+					<table>
+					<tr>
+						<td>{{ loginform.username.label_tag }}</td>
+						<td>{{ loginform.username }}</td>
+					</tr>
+					<tr>
+						<td>{{ loginform.password.label_tag }}</td>
+						<td>{{ loginform.password }}</td>
+					</tr>
+					</table>
+
+					<input type="submit" value="login" />
+					<input type="hidden" name="next" value="{{ next }}" />
+					</form>
+				</div>
+				<!--
+				<div id='advert'>
+					<img src="/media/img/mcd.jpg">
+				</div>
+				
+				<div id='UserDay'>
+			
+				<b><big>User of the week:</big></b> <br/><br/>
+				Scarlett Johansson <br/>
+				<br/><br/>
+				<b><big>About: </big></b> <br/><br/>
+				Cookings my favourite hobby. It's a pity I'm not very good at it! 
+				<br/><br/></br>
+				<b><big>Profile:</big></b></br></br>
+				www.google.co.uk
+				</div>
+				
+				<div id='search'>
+					Input the ingredients you wish to search for: <br/><br/><br/><br/><br/><br/><br/>
+					<i><small>For example: flour, butter, sugar. </small></i>
+					
+				
+					
+					<div id='searchwrapper'><form method="POST" action="{%url api_collab_search%}">
+						<input type="text" class="searchbox" name="q" value="" />
+						<input type="image" src="/media/img/blank.jpg" class="searchbox_submit" value="" />
+						</form>
+						</div>
+				</div>
+				
+	
+	<div id='textField'>
+	<small><p>Hello {{user|capfirst}}!</p>
+			<p>Welcome to digichef. We hope you can find the recipe you are looking for :-)</p></small>
+	</div>
+	</div>
+		-->
+		</div>
+	
+<!---JAVASCRIPT SLIDESHOW-->
+			<div id="slideshow" style="position: absolute; left: 20px; top: 390px;">    
+      <span id="loading">Loading</span>
+    
+      <ul id="pictures">
+        <li><img src="/media/img/cities/melbourne.jpg" alt="Melbourne" title="Melbourne" /></li>
+        <li><img src="/media/img/cities/buenos_aires.jpg" alt="Buenos Aires" title="Buenos Aires" /></li>
+        <li><img src="/media/img/cities/urubamba.jpg" alt="Urubamba" title="Urubamba" /></li>
+        <li><img src="/media/img/cities/london.jpg" alt="London" title="London" /></li>
+        <li><img src="/media/img/cities/venice.jpg" alt="Venice" title="Venice" /></li>
+        <li><img src="/media/img/cities/paris.jpg" alt="Paris" title="Paris" /></li>
+        <li><img src="/media/img/cities/osaka.jpg" alt="Osaka" title="Osaka" /></li>        
+      </ul>
+      
+      <ul id="menu">
+        <li><a href="/media/img/cities/melbourne.jpg">Melbourne</a></li>
+        <li><a href="/media/img/cities/buenos_aires.jpg">Buenos Aires</a></li>
+        <li><a href="/media/img/cities/urubamba.jpg">Urubamba</a></li>
+        <li><a href="/media/img/cities/london.jpg">London</a></li>
+        <li><a href="/media/img/cities/venice.jpg">Venice</a></li>
+        <li><a href="/media/img/cities/paris.jpg">Paris</a></li>
+        <li><a href="/media/img/cities/osaka.jpg">Osaka</a></li>
+      </ul>
+    </div>
+		<div id="slideshow-options">
+      
+      <!-- <h3><label for="option-auto">Auto</label> <input type="checkbox" name="auto" checked="checked" id="option-auto" /></h3> -->
+    
+      <p name="auto" id="option-auto" />
+		 </div>
+<!--END OF JAVASCRIPT SLIDESHOW-->
+
+<!--TEXTBOX-->
+
+		
+		<form action="submit.php" method="post" accept-charset="utf-8" method="POST" action="{%url api_collab_search%}" style="position: absolute; left: 20px; top: 690px;">
+		<!--
+		<h2>TextboxList (standard)</h2>
+		<p>Enter tags</p>
+		<div class="form_tags"><input type="text" name="test" value="" id="form_tags_input" /></div>
+		<p class="note">Type the tag (one or more words) and press enter. Use left/right arrows, backspace, delete to navigate</p>
+		
+		<p>Enter tags (with commas)</p>
+		<div class="form_tags"><input type="text" name="test2" value="" id="form_tags_input_2" /></div>
+		<p class="note">Type the tag (one or more words) and press comma (,). Use left/right arrows, backspace, delete to navigate</p>
+		
+		<h2>TextboxList.Autocomplete (values seeded all at once)</h2>
+		<p>Select friends to email</p>
+		<div class="form_friends">
+			<input type="text" name="test3" value="" id="form_tags_input_3" />
+		</div>
+		<p class="note">Type the tag (one or more words) and press enter. Use left/right arrows, backspace, delete to navigate/remove boxes, and up/down/enter to navigate/add suggestions.</p>
+		-->
+		<h2>TextboxList.Autocomplete (values seeded on demand)</h2>
+		<p>Select friends to email</p>
+		<div class="form_friends">
+			<input type="text" name="test4" value="" id="form_tags_input_4" />
+		</div>
+		<p class="note">Type the tag (one or more words) and press enter. Use left/right arrows, backspace, delete to navigate/remove boxes, and up/down/enter to navigate/add suggestions.</p>
+				
+		<h1>Test submit</h1>
+		<p><input type="submit" value="Submit" id="submitform" /></p>
+		
+	</form>	
+	<!--END OF TEXTBOX-->	
+	</body>
+
+</html>

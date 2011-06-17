@@ -1,0 +1,30 @@
+/*
+* Author :  Dhruv Gairola
+* ID: 005069
+* Date :  22/04/09
+* Module : G51WPS
+* G51WPS coursework
+*/
+
+body		{background-color:#FFFF99;}
+#p		{background-color:#ffffcc;width:650pt;}
+#div		{background-color:#ffcc99;width:650pt;}
+h1, h2, h3, h4, p	{text-align:center;}
+form		{text-align:center;}
+table		{border-collapse:separate;empty-cells:show;}
+div.fileinputs	{position:relative;}
+div.fakefile	{position:absolute;top:0px;left:0px;z-index:1;}
+input.file	{position:relative;text-align:right;-moz-opacity:0;filter:alpha(opacity:0);opacity:0;z-index:2;}
+#header{
+	
+	background-color:#FF9933;
+	width:auto;
+	height: 100px;
+	clear:both;
+	background-position:top top;
+	background-repeat:none;
+	text-align: center;
+	margin:0;
+	padding:0;
+		
+}

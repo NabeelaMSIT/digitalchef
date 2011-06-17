@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{float} % lets us use the 'H' specifier and shout down LaTeX fig placement
+
+% This makes paragraphs with titles start on a new line
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\title{G52GRP Final Group Report \vspace{0.5em}\\
+Digital Chef: Collaborative Filtering in the Kitchen}                     % used by \maketitle
+\author{\textbf{gp09-jqg}: \\
+\newline
+Dhruv Gairola (dxg09u) - Project Manager\\
+Chris Head (cxh08u) - Quality Assurance Officer\\
+Rob Miles (rxm08u) - Technical Director\\
+Amy Jane Wesson (ajw08u) - Documentation Manager\\
+Chenjue Xu (cxx09u) - Head of Design\\
+\textit{supervised by} \\
+Dr Julie Greensmith (jqg)
+} % Alphabetical order
+\date{April 1, 2010}                                    % used by \maketitle
+
+\setlength{\topmargin}{-.4in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{.125in}
+\setlength{\textwidth}{6.25in}
+
+
+\begin{document}
+\maketitle                                              % automatic title!
+\newpage
+
+
+%\setlength{\topmargin}{-1.5in}
+\tableofcontents%\setlength{\topmargin}{-.4in}
+
+\newpage
+
+\section{An Introduction to the ``Problem''}
+\input{the_problem.tex}
+\newpage
+
+\section{Expanded Problem Description}
+\input{expanded_problem_description.tex}
+\newpage
+
+\section{Research} %quite aware this is in the wrong place, idk where the right place is. please rearange the following
+\input{research.tex}
+\newpage
+
+\section{Results of Technical Research}		%new section on research
+\input{technical_research.tex}
+\newpage
+
+\section{Collaborative Filtering Technology}
+\input{collab_filtering.tex}
+\newpage
+
+\section{Product Specification} 			%Product Spec
+\label{sec:productspec}
+\input{product_spec.tex}
+\newpage
+
+\section{Initial design of the proposed system and its user interface}
+\input{update_design.tex}				%Error with update_design.tex
+\newpage
+
+\section{Implementation Options/Designs}
+\input{implementation_options.tex}
+\newpage
+
+\section{Implementation Decisions}
+\input{implementation_decisions.tex}
+\newpage
+
+
+\section{Implementation Results}
+\input{final_result.tex}
+\newpage
+
+\section{Testing}
+\input{testing_data.tex}
+\newpage
+
+
+\section{Reflections on project}
+\input{probs_encountered.tex}
+
+
+\section{Conclusion}
+\input{conclusion.tex}
+\newpage
+
+\section{Evaluation}
+\input{evaluation.tex}
+\newpage
+
+
+
+\section{Appendices}
+\input{timescale.tex}
+\input{MInutes_compiled.tex}
+\newpage
+
+\end{document}             % End of document.

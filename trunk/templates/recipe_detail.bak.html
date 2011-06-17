@@ -1,0 +1,123 @@
+<html>
+
+<head>
+	
+	<LINK REL=StyleSheet HREF="/media/css/style.css" TYPE="text/css">
+
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			$("#voting a").click(function() {
+				var current = $(this);
+				var parent = current.parent().parent();
+				var recipeId = parent.attr('recipeId');
+
+				if (current.is("#voting-upvote")) {
+					vote(recipeId, 'up');
+				} else if (current.is("#voting-downvote")) {
+					vote(recipeId, 'down');
+				} else if (current.is("#voting-clearvote")) {
+					vote(recipeId, 'clear');
+				}
+
+				return false;
+			});
+
+			function vote(id, direction) {
+				$.post('/recipes/'+id+'/'+direction+'vote/', {HTTP_X_REQUESTED:'XMLHttpRequest'},
+					   function(data) {
+						   if (data.success == true) {
+						       $('#score').text(data.score.score);
+						       $('#num_votes').text(data.score.num_votes);
+						   } else {
+						       alert('ERROR: ' + data.error_message);
+						   }
+					   }, 'json'
+					  )
+			}
+
+			var similar_recipes = $('#similar_recipes');
+			similar_recipes.text("Loading...");
+			$.get("{%url api_similar recipe.id%}", {}, function(data) {
+				similar_recipes.text("");
+				$.each(data, function(i, item){
+					var title = item.title;
+					var url = item.url;
+					var img_url = item.img_url;
+//					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
+					similar_recipes.append('<li><a href="'+url+'"><img class="similar_thumbnail" src="'+img_url+'" \\>'+title+'</a></li>');
+				});
+			}, 'json');
+		});
+	</script>
+
+	<title>{{recipe.title}} - DigiChef</title>
+
+</head>
+
+<body>
+
+	<div id='main'>
+
+		<div id='header'></div>
+
+		<div id='sidebar'>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href='/recipes/'>Recipes</a></li>
+			</ul>
+		</div>	
+
+
+
+		<div id='recipeSection'>
+
+			<img id="recipe_image" src="{{recipe.image_url}}" width=400px alt="{{recipe.title}}"\>
+
+			<h1>{{recipe.title}}</h1>
+			<h2>Ingredients:</h2>
+
+			<ul>
+				{% for ingredient in ingredient_list %}
+				<li> {{ ingredient }} </li>
+				{% endfor %}
+			</ul>
+
+			<h2>Instruction:</h2>
+			<p>{{recipe.instructions|linebreaks}}</p>
+
+			<h2>Tags:</h2>
+
+			<p>
+			{% for tag in recipe.tags %}
+			{{tag.name}}{%if not forloop.last%} |{%endif%}
+			{% endfor %}
+			</p>
+
+			<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
+			 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
+			{% if user.is_authenticated %}
+			<ul id="voting" recipeId="{{ recipe.id }}">
+				<li><a id="voting-upvote" href="">I like it!</a></li>
+				<li><a id="voting-downvote" href="">I hate it!</a></li>
+				<li><a id="voting-clearvote" href="">I take it back! Clear my vote.</a></li>
+			</ul>
+			{% else %}
+			<p>Please <a href="/accounts/login/">log in</a> to rate</p>
+			{% endif %}
+
+			<h2>More recipes like this:</h2>
+			<ul id="similar_recipes">
+				<li>Loading recipes requires Javascript</li>
+			</ul>
+
+		</div>
+
+		<div id='footer'>GRP DIGI CHEF :D</div>
+
+	</div>
+
+</body>
+
+</html>

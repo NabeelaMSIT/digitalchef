@@ -1,0 +1,125 @@
+Testing the product is an essential component of any good software development, and this section deals not only with the
+details of the various tests which we conducted on our software, but also highlights the issue of obtaining suitable test
+data to run the tests on.
+
+\subsection{Obtaining Test Data}
+\subsubsection{Requirements}
+In order for testing to be effective for a database-driven project of this type it was necessary to have a large database of recipes, for several reasons.
+
+Firstly, performance and scalability, while not explicitly in the specification, are implicit goals for any software implementation. A large database is required to test the system's performance on large quantities of data.
+
+Secondly, collaborative filtering systems work better the more data they have. Filters, by definition, act by filtering out large amounts of data leaving only the best matches. Having more data both increases the chance of good matches existing in the dataset, and increases the amount of available information that the system can use to find those matches.
+
+The database also had to consist of real data. A large database of randomly generated fake recipes would have been easy to create, and could be used to test scalability and performance, but would not have worked for testing filtering quality. The only way to test the \textit{quality} of the output of a collaborative filtering system is for a human to assess it for utility and reasonableness. A human would find it difficult to assess the quality of the output from a system that used a random database.
+
+After assessing the datasets of other recipe sites and the technical properties of the platform it was decided that a database of approximately 1000 recipes would be suitable for testing. Due to the size of this requirement it was decided that manual data entry was off limits, as it would be far too time consuming.
+
+For collaborative filtering to be possible, the recipes also need to be tagged with what ingredients they contain, as it is this data that the system uses to draw connections between related recipes.
+
+Finally, the design team requested that the recipes have images related to them, to improve the aesthetic qualities of the site and differentiate intuitively between recipes.
+
+So to summarise the technical requirements;
+
+\begin{quotation}
+A database of about 1000 real recipes, each with relevant semantic metadata representing their ingredients, and a relevant image, \textit{without} any human input.
+\end{quotation}
+
+\subsubsection{Meeting the requirements}
+
+Obtaining raw recipe data was achieved by use of a recursive web-spider. All recipe detail pages of the website \texttt{AllRecipes.com} were downloaded as html files. The required data were scraped from the resulting 941 html files using a python scraping script, which used the XML/HTML parsing package BeautifulSoup to extract the data from the files in bulk, reformatted the data a little, and interfaced directly with the django database API to input the recipes into the database.
+
+Applying tags to represent ingredients was less simple. The solution would require automated semantic analysis, as the ingredients are listed in an unknown format. For example, the ingredient `onion' could be listed in many different ways; `1 onion', `One onion', `One large onion', '1 chopped onion', `Onion (peeled and chopped)', `1 cup chopped onion', `3 onions'. To solve this problem a novel approximate solution was invented, making use of the semantic knowledge engine TrueKnowledge, which exposes an XML web API to developers. Every word in the ingredients sections of every page was extracted, de-pluralised and put into a \texttt{set} data structure, to prevent duplication of API queries, of which a limited number are allowed in a given timeframe. Each word was then loaded into an API query which effectively asked \textit{`is $<$word$>$ food?'}. Recipes were then tagged with every word in their ingredients list which was considered to be food. In this way the system was able to know that words like `chopped', `peeled', and `cup' do not warrant tags, while `onion' does. The system is somewhat approximate, as strings such as `30g onion powder` will be tagged simply `onion', but it is good enough for testing data.
+
+To find suitable images, a custom script was written to query Google Image Search. Since Google's image API is licensed for live web services not bulk data acquisition, it could not be used. Google implements some measures to prevent Google Image Search from being accessed programmatically, but these were circumvented by User Agent spoofing. Initially there were issues with images too large, too small, or on occasion too obscene to be used, but soon the right settings were found to ensure medium-sized, safe images. The intention was to provide images which were distinct and food related, but the system consistently surpasses that, producing images which are generally attractive, professionally photographed and surprisingly accurate, even for complex recipes. The images are of many different aspect ratios, which is useful for the design team, as the images in a production system would be provided by the users, so it is important to ensure that the page styling works with arbitrary images.
+
+
+
+\subsection{Running Tests}
+To make the testing of our product comprehensive, it was decided that we run three types of broad based tests dealing with website functionality, website compatibility and recipe search speed. 
+
+\subsubsection{Website Functionality}
+The functionality of the website needs to be tested. It is of dire importance that the different functions of our website adhere to their specifications and that the navigation around the website works as specified. 
+
+The functionality of the website will be tested using black-box-testing. The testing will primarily be done by using three different input data for each area where input is accepted. The three different inputs will be one of each: valid, invalid and extreme.
+Valid data is data that is usually accepted by the system and would be 'normal' data by a user. Invalid data is data that is not accepted by the system and should create some kind of error message. Extreme data is valid data that is on either end of the spectrum of what is normally accepted. An example of this could be testing whether a data field, which asks for a password of up to 12 characters, will actually accept 12 characters. The output of entering these three different input data will then be compared to the expected outcome. If the outcomes match then that particular test has been passed. Below is the formal test plan that outlines the actual tests and what the expected outcomes of these tests are.
+ 
+The tests listed 1.1 through 1.3 concern the search box, 2.1 through 2.5 concern user accounts and 3.1 through 3.2 are miscellaneous general tests. 
+
+    \begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
+    \hline
+    Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
+    
+    1.1 &	Test that the search box will accept and auto-complete with three common, tagged ingredients by entering the three ingredients and clicking the search button. &	Valid/normal data.
+Data - \emph{Cheese, Egg, Milk}. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+
+
+1.2	& Test that the search box accepts 10 common tagged ingredients by entering them into the search bar&	Extreme data.
+Data - \emph{Cheese, Egg, Bacon, Milk, Onion, Mushroom, Tomato, Salt, Butter, Flour}. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+
+1.3	& Test that the search function will run with no ingredients by clicking the search button while the box is empty. &	Extreme data.
+Data - \emph{nothing} &	Clicking the search button should make the browser redirect the user to the recipe results page where no recipes are shown.\\
+    \hline
+    \end{tabular}
+    
+		\begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
+    \hline
+    Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
+
+2.1	& Test that users are able to login to their accounts. &	Valid data. \emph { valid username, valid password}
+&	The account can be accessed and user is directed to the home page to begin search. Additionally, user can now view his profile from the menubar.\\ \hline
+
+
+2.2	& Users can like or dislike recipes, or cancel their vote. &	Valid data. &	Recipe score is updated accordingly and if the user likes the recipe, it should now appear on his profile page and generate new recommendations. Users can only rate on recipe if he is logged into his account.\\ \hline
+
+2.3	& Test if users can like the same recipe twice. &	Invalid data. & The recipe can only be liked once, provided the user is logged into his account.\\ \hline
+
+2.4	& Test if users can submit a recipe. &	Valid data. & The recipe now appears in the database.\\ \hline
+
+2.5	& Test whether users can edit their profiles. & Valid data.&	New profile page should be updated accordingly.\\
+		\hline
+    \end{tabular}
+
+		\begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
+    \hline
+    Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
+    
+3.1	& Test that new recipes are loaded into the slideshow with each page refresh. &	Valid data.& Not only new recipes must be loaded but their images must allow users to link to the recipe detail page.\\ \hline
+
+3.2	& Test that all links are valid &	Valid data. &	All links work as per normal.\\
+		\hline
+    \end{tabular}
+    
+All the tests were passed. Although an exhaustive testing was not possible, due to the large scope of possibilities, we did test our product on over 25 users, who thoroughly examined our website and were unable to find any functionality faults with it.
+
+\subsubsection{Website Compatibility}
+
+Before we proceed with testing our product on different browsers, we need to determine the relative popularity of the different browsers.\footnotemark
+
+\footnotetext{\texttt{http://w3schools.com/browsers/browsers\_stats.asp}}
+
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Web Browsers by market share} \\
+\hline
+1 Firefox & 46.5\% \\
+2 Internet Explorer 8 & 14.7\% \\
+3 Chrome 4 & 11.6\% \\
+4.Internet Explorer 7 & 11.0\% \\
+5 Internet Explorer 6 & 9.6\% \\
+6 Safari & 3.8\% \\
+7 Opera & 2.1\% \\
+\hline
+\end{tabular}
+\newline{}
+\newline{}
+
+Broadly, we would assign a priority as to which browser the website should be tested on most thoroughly. Firefox, Internet Explorer 6, 7 and 8 and Chrome are assigned the highest priority. Our website successfully passed the tests on the aforementioned browsers, also, including Safari. Moreover, the test was carried out on different screen widths, and passed that as well.
+
+\subsubsection{Recipe Search Speed}
+Testing of the search speed is a convoluted task, because if we are to arrive at an exact big-oh complexity of the search, this would involve dealing with the Tanimoto coefficient and with tf-idf (term frequency-inverse document frequency) weighting which is used in text mining to compare the ingredients with tags. Rather than dealing directly with such nuanced topics, we can, however suggest an indirect big oh derivation by evaluating how the search works.
+First, all the tags for each object are collected and put into a matrix, by using a \emph{for} loop and this is done for all objects (recipes).
+Then, a \emph{for} loop is run on each tag for a particular recipe, which compares the tag with the specified ingredient based on some Tanimoto computation which returns a value.
+Then, if this value is sufficiently high, it is appended (along with the related recipe) to an array, which contains all the recipes which match the input ingredients. The value in the array with the highest value appears higher up in the seach.
+Hence, this gives a speed described by the following Big-Oh notation: O(number of tags*tanimoto value for each recipe*appending to list*sorting the array).
+We could have tried evaluating the efficiency of our search experimentally but it would have been of little use due to variations in database caching and other server performance variations.
+If observational evalution is used to assess the seach speed, the speed is indistinguishable from the search speed of similar commercial websites, given our database which contains over 900 recipes.

@@ -1,0 +1,90 @@
+
+div,img
+{
+	margin:0; 
+	padding:0; 
+	border:0;
+} 
+ul,li
+{
+	list-style-type: none; 
+	margin:0; 
+	padding:0; 
+	float:left; 
+}
+ 
+#info
+{ 
+	margin-left:auto; 
+	margin-right:auto;
+	width:760px; 
+	text-align:left;
+} 
+#new
+{ 
+	margin-top:-12px;
+	position: absolute;
+	margin-left:-12px;
+} 
+#nav
+{ 
+	height:30px; 
+	width:610px; 
+	margin-left:auto; 
+	margin-right:auto;
+} 
+#nav li
+{
+	margin-left:1px; 
+	height:30px
+}
+#nav li a
+{ 
+	display:block;
+	float:left; 
+	text-decoration:none; 
+	background-repeat: no-repeat; 
+	display:block; 
+	background-position:left top;
+} 
+
+#nav a span
+{
+	cursor:hand; 
+	color:#000;
+	background-repeat: no-repeat; 
+	display:block;
+	background-position: right top; 
+	padding:7px 10px 6px 10px; 
+	float:left; 
+} 
+#nav li a:active,#nav li a:hover {margin-top:0px; } 
+#nav li  a:active span,#nav li a:hover span {padding:10px 10px 6px 10px; margin-top:0px; display:block; color:#DF7401;} 
+#zishu01 a:link,#zishu01 a:visited {background-position: 0px -27px;} 
+#zishu01 a:link span,#zishu01 a:visited span{background-position:right -27px;padding:10px 10px 6px 10px; margin-top:0; color:#DF7401; font-weight:bold;} 
+#zishu02 a,#zishu03 a,#zishu04 a,#zishu05 a,#zishu06 a,#zishu07 a,#zishu08 a,#zishu09 a,#zishu10 a,#zishu11 a{margin-top:3px;} 
+#zishu02 a:active,#zishu02 a:hover {background-position: 0px -57px;} 
+#zishu02 a:active span,#zishu02 a:hover span{background-position:right -57px;} 
+#zishu03 a:active,#zishu03 a:hover {background-position: 0px -87px;} 
+#zishu03 a:active span,#zishu03 a:hover span{background-position:right -87px;} 
+#zishu04 a:active,#zishu04 a:hover {background-position: 0px -117px;} 
+#zishu04 a:active span,#zishu04 a:hover span{background-position:right -117px;} 
+#zishu05 a:active,#zishu05 a:hover {background-position: 0px -147px;} 
+#zishu05 a:active span,#zishu05 a:hover span{background-position:right -147px;} 
+#zishu06 a:active,#zishu06 a:hover {background-position: 0px -177px;} 
+#zishu06 a:active span,#zishu06 a:hover span{background-position:right -177px;} 
+#zishu07 a:active,#zishu07 a:hover {background-position: 0px -207px;} 
+#zishu07 a:active span,#zishu07 a:hover span{background-position:right -207px;} 
+#zishu08 a:active,#zishu08 a:hover {background-position: 0px -237px;} 
+#zishu08 a:active span,#zishu08 a:hover span{background-position:right -237px;} 
+#zishu09 a:active,#zishu09 a:hover {background-position: 0px -267px;} 
+#zishu09 a:active span,#zishu09 a:hover span{background-position:right -267px;} 
+#zishu10 a:active,#zishu10 a:hover {background-position: 0px -297px;} 
+#zishu10 a:active span,#zishu10 a:hover span{background-position:right -297px;} 
+#zishu11 a:link span,#zishu11 a:visited span{color:#FF6600;} 
+#zishu11 a:active,#zishu11 a:hover {background-position: 0px -327px;} 
+#zishu11 a:active span,#zishu11 a:hover span{background-position:right -327px;} 
+#menu{ width:1000px; height:26px; background:#FF9900;} 
+#r1{border-top: 0px;border-bottom: 0px; border-left:3px solid #fff;border-right:3px solid #fff; height:1px; overflow:hidden;} 
+#r2{border-top: 0px;border-bottom: 0px; border-left:2px solid #fff;border-right:2px solid #fff; height:1px; overflow:hidden;} 
+#r3{border-top: 0px;border-bottom: 0px;    border-left:1px solid #fff;border-right:1px solid #fff; height:1px; overflow:hidden;} 

@@ -1,0 +1,134 @@
+#main{
+	text-align:left;
+	margin:0px 155px auto 155px;
+	background-color: #FFE297;
+	color: #000000;
+	
+}
+
+#ourWrap {
+	
+	margin:0 auto;
+	position:relative;
+}
+
+#ourElement {
+	width:300px;
+	height:300px;
+	position:absolute;
+	top:100px;
+	right:100px;
+}
+#ourElement2 {
+	width:300px;
+	height:300px;
+	position:absolute;
+	top:160px;
+	right:50px;
+}
+
+
+
+
+
+
+
+
+#mainSection{
+	
+	float: left;
+	text-align: left;
+	min-height:300px;
+	margin-left:10px;
+	padding: 5px 10px 15px 10px;
+	
+}
+
+
+#userSearch{
+	
+	float:left;
+	min-height:300px;
+	margin: 5px 0px 0px 0px;
+	padding: 0px;
+}
+
+
+
+#java {
+
+	float:left;
+	margin: 0px;
+}
+
+
+#sideBar{
+	
+	float: right;
+	text-align: left;
+	min-height:300px;
+	margin-left:10px;
+	padding: 5px 10px 15px 10px;
+	width:215px;
+	
+}
+
+#signIn{
+	
+	width:225px;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;
+	float:right;
+}
+
+#welcomeTxt{
+	
+	width:605px;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;
+
+}
+
+#advert{
+	
+	
+	float:right;
+
+}
+
+#profile{
+	width:325px;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;
+	float:right;
+
+}
+
+#profile p{
+	float:right;
+
+}
+
+
+#form form label {
+	display: block;
+	float: left;
+	width: 150px;
+	padding:0;
+	margin: 5px 0 0;
+	text-align:right;
+}
+
+.orange #waxcontainer{position:relative;height:48px;background:#FFE297;width:100%;font-family:"Trebuchet MS",Arial,Verdana,Helvitica,sans-serif;}
+.orange #waxnav{position:relative;height:25px;font-size:11px;font-weight:bold;background:#fff url(/media/img/orangewax_bottom.gif) repeat-x bottom left;}
+.orange #waxnav ul{margin:0px;padding:0 0 4px 0;list-style-type:none;width:auto;float:right;}
+.orange #waxnav ul li{display:block;float:left;margin:0 1px;}
+.orange #waxnav ul li a{display:block;float:left;color:#FF7E00;text-decoration:none;padding:0 0 0 12px;height:21px;line-height:195%;}
+.orange #waxnav ul li a span{padding:0 12px 0 0;}
+.orange #waxnav ul li a:hover,.orange #waxnav ul li a.current{color:#fff;background:#FF9900 url(/media/img/orangewax_navtopleft.gif) no-repeat top left;}
+.orange #waxnav ul li a:hover span,.orange #waxnav ul li a.current span{display:block;width:auto;background:#FF9900 url(/media/img/orangewax_navtopright.gif) no-repeat top right;}
+
+

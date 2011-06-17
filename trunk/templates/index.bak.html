@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+
+	<link href="/media/css/style.css" rel="stylesheet" media="all" />
+		<!--barrack slideshow -->
+		 <link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
+		<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
+    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
+	
+	
+	<!--autocomplete search -->
+	
+	<!-- required stylesheet for TextboxList -->
+		<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+		<!-- required stylesheet for TextboxList.Autocomplete -->
+		<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+		
+			
+
+		<!-- required for TextboxList -->
+		<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
+				
+		<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
+		<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>		
+		
+		<!-- sample initialization -->
+		<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+				 
+					window.addEvent('load', function(){
+
+									// Autocomplete initialization
+									var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
+//															t4.add('John Doe').add('Jane Roe');
+									
+
+									t4.container.addClass('textboxlist-loading');													 
+									new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
+													t4.plugins['autocomplete'].setValues(r);
+													t4.container.removeClass('textboxlist-loading');
+									}}).send();														 
+									
+					});
+				//]]>
+				</script> 
+		
+		<!-- sample style -->
+		<style type="text/css" media="screen">
+			.form_tags { margin-bottom: 10px; }
+			
+			/* Setting widget width example */
+			.textboxlist { width: 400px; }
+			
+			/* Preloader for autocomplete */
+			.textboxlist-loading { background: url('images/spinner.gif') no-repeat 380px center; }
+			
+			/* Autocomplete results styling */
+			.form_friends .textboxlist-autocomplete-result { overflow: hidden; zoom: 1; }
+			.form_friends .textboxlist-autocomplete-result img { float: left; padding-right: 10px; }
+			
+			.note { color: #666; font-size: 90%; }
+			#footer { margin: 50px; text-align: center; }
+		</style>
+	
+	
+	
+	
+	
+	
+</head>
+
+<body>
+	
+	
+	<div id="main">
+	<div class="orange">
+	<div id="waxcontainer">
+	<div id="waxnav">
+	<ul>
+	<li><a href="" title="" class="current"><span>Home</span></a></li>
+	<li><a href="" title=""><span>About Us</span></a></li>
+	<li><a href="" title=""><span>Services</span></a></li>
+	<li><a href="" title=""><span>Our Work</span></a></li>
+	<li><a href="" title=""><span>Contact Us</span></a></li>
+	</ul>
+	</div>
+	</div>
+	</div>
+	
+		<div><img src="/media/img/logo.bmp" alt= "header" /></div>
+
+			<div id="signIn">
+				<form method="post" action= "{% url django.contrib.auth.views.login %}">
+					<table summary="login form">
+						<tr>
+							<td>{{ loginform.username.label_tag }}</td>
+
+							<td>{{ loginform.username }}</td>
+						</tr>
+
+						<tr>
+							<td>{{ loginform.password.label_tag }}</td>
+
+							<td>{{ loginform.password }}</td>
+						</tr>
+					</table><input type="submit" value="login" />
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+			</div>
+			
+<div id="welcomeTxt">
+				<p>Hello {{user|capfirst}}! Welcome to digichef!</p>
+				<p>Check out some the featured dishes below, or search for a suitable recipe by ingredients!</p>
+				</div>
+<br>
+<div id="advert"><img src="/media/img/mcd.jpg" alt=
+			"advertisement" /></div>
+			
+
+			
+			<!---JAVASCRIPT SLIDESHOW-->
+		<div id="slideshow">   
+				
+      <span id="loading">Loading</span>
+    
+      <ul id="pictures">
+		{%for s_recipe in slideshow_recipes%}
+        <li><a href="{{s_recipe.get_absolute_url}}"><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" class="slideshow-picture" width=438px /></a></li>
+		{%endfor%}   
+      </ul>
+      
+      <ul id="menu">
+		{%for s_recipe in slideshow_recipes%}
+        <li><a href="{{s_recipe.image_url}}">{{s_recipe.title|truncatewords:5}}</a></li>
+		{%endfor%}
+      </ul>
+    </div>
+
+	<div id="slideshow-options">
+		<!--<h3><label for="option-auto">Auto</label> <input type="checkbox" name="auto" checked="checked" id="option-auto" /></h3> -->    
+		<p name="auto" id="option-auto" />
+	</div>
+	<!--END OF JAVASCRIPT SLIDESHOW-->
+				
+			<div id="profile">
+				<img src="/media/img/user.jpg"/>
+				<p>User of the week:<br/>Scarlett Johansson.<br/>
+				About:<br/>Cookings my favourite hobby.</p>
+			</div>
+						
+						
+						
+					
+					<!--SEARCHBOX-->
+<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
+
+				<p>Input the ingredients you wish to search
+				for:</p>
+				<i><small>For example: flour, butter, sugar.</small></i>
+
+				<div id='searchwrapper'>
+					<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
+						<div class="form_friends">
+							<input type="text" name="q" value="" id="form_tags_input_3" />
+						</div>
+
+
+						<p><input type="submit" value="Search" id= "submitform" /></p>
+					</form>
+				</div>
+				
+<!--END OF SEARCHBOX-->
+
+	</div>
+	
+</body>
+</html>

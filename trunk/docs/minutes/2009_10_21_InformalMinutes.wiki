@@ -1,0 +1,34 @@
+#summary Informal Meeting Minutes for 21st Oct
+
+12:30, Computer science Atrium
+
+==Present==
+
+ * Robert
+ * Dhruv
+ * Amy
+ * Jue
+
+==Apologies==
+
+ * Chris
+  * Has job training
+
+===Events==
+
+ * Amy suggested we work on milestones and presented a template
+ * Brainstorming of milestones headers
+  * Database
+  * Web interface
+ * Discussion of possibilities for a server
+  * Running django on school's servers?
+  * Getting an old machine to use as a server?
+  * Getting money for 3rd party hosting?
+ * Amy suggested a django meeting on Tuesday
+  * Time to be confirmed
+
+
+==Action Points==
+
+ * Rob: Post to basecamp good sites to learn about django
+ * All: Read up on django

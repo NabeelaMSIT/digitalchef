@@ -1,0 +1,5 @@
+[
+{%for tag in tags%}
+["{{tag.name}}", "{{tag.name}}", null, "{{tag.name|capfirst}}"],
+{%endfor%}
+]

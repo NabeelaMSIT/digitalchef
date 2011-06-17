@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.recommender.managers.RecommenderManager</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        <a href="digichef.recommender-module.html">Package&nbsp;recommender</a> ::
+        <a href="digichef.recommender.managers-module.html">Module&nbsp;managers</a> ::
+        Class&nbsp;RecommenderManager
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.recommender.managers.RecommenderManager-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class RecommenderManager</h1><p class="nomargin-top"><span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_digichef_6" name="uml_class_diagram_for_digichef_6">
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#MIN_RECOMMENDATION_VALUE" title="digichef.recommender.managers.RecommenderManager.MIN_RECOMMENDATION_VALUE" alt="" coords="17,28,761,47"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#MIN_SIMILARITY_VALUE" title="digichef.recommender.managers.RecommenderManager.MIN_SIMILARITY_VALUE" alt="" coords="17,47,761,65"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#MIN_CONTENT_BASED_RECOMMENDATION_VALUE" title="digichef.recommender.managers.RecommenderManager.MIN_CONTENT_BASED_RECOMMENDATION_VALUE" alt="" coords="17,65,761,84"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_best_items_for_user" title="digichef.recommender.managers.RecommenderManager.get_best_items_for_user" alt="" coords="17,87,761,105"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_items_for_user" title="digichef.recommender.managers.RecommenderManager.get_items_for_user" alt="" coords="17,105,761,124"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_similar_users" title="digichef.recommender.managers.RecommenderManager.get_similar_users" alt="" coords="17,124,761,143"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_best_users_for_item" title="digichef.recommender.managers.RecommenderManager.get_best_users_for_item" alt="" coords="17,143,761,161"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_similar_items" title="digichef.recommender.managers.RecommenderManager.get_similar_items" alt="" coords="17,161,761,180"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_similar_items_from_model" title="digichef.recommender.managers.RecommenderManager.get_similar_items_from_model" alt="" coords="17,180,761,199"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#create_matrix" title="digichef.recommender.managers.RecommenderManager.create_matrix" alt="" coords="17,199,761,217"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#create_matrix_from_model" title="digichef.recommender.managers.RecommenderManager.create_matrix_from_model" alt="" coords="17,217,761,236"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#rotate_matrix" title="digichef.recommender.managers.RecommenderManager.rotate_matrix" alt="" coords="17,236,761,255"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_content_based_recs" title="For a given user tags and a dicc of item tags, returns the distances between the user and the items..." alt="" coords="17,255,761,273"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_by_relevance_to_tags" title="For a given user tags and a dicc of item tags, returns the distances between the user and the items..." alt="" coords="17,273,761,292"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#cluster_users" title="digichef.recommender.managers.RecommenderManager.cluster_users" alt="" coords="17,292,761,311"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#cluster_items" title="digichef.recommender.managers.RecommenderManager.cluster_items" alt="" coords="17,311,761,329"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html#get_recommendations_for_user_on_items" title="digichef.recommender.managers.RecommenderManager.get_recommendations_for_user_on_items" alt="" coords="17,348,761,367"/>
+<area shape="rect" href="digichef.recommender.managers.RecommenderManager-class.html" title="digichef.recommender.managers.RecommenderManager" alt="" coords="16,11,763,368"/>
+</map>
+  <img src="uml_class_diagram_for_digichef_6.gif" alt='' usemap="#uml_class_diagram_for_digichef_6" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_best_items_for_user"></a><span class="summary-sig-name">get_best_items_for_user</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">user_list</span>,
+        <span class="summary-sig-arg">item_list</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_RECOMMENDATION_VALUE</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_best_items_for_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_items_for_user"></a><span class="summary-sig-name">get_items_for_user</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">itemtype</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_RECOMMENDATION_VALUE</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_items_for_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_similar_users"></a><span class="summary-sig-name">get_similar_users</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">user_list</span>,
+        <span class="summary-sig-arg">item_list</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_SIMILARITY_VALUE</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_similar_users">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_best_users_for_item"></a><span class="summary-sig-name">get_best_users_for_item</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">user_list</span>,
+        <span class="summary-sig-arg">item_list</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_RECOMMENDATION_VALUE</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_best_users_for_item">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_similar_items"></a><span class="summary-sig-name">get_similar_items</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">user_list</span>,
+        <span class="summary-sig-arg">item_list</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_SIMILARITY_VALUE</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_similar_items">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_similar_items_from_model"></a><span class="summary-sig-name">get_similar_items_from_model</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">user_list</span>,
+        <span class="summary-sig-arg">model</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_SIMILARITY_VALUE</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_similar_items_from_model">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create_matrix"></a><span class="summary-sig-name">create_matrix</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">users</span>,
+        <span class="summary-sig-arg">items</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.create_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create_matrix_from_model"></a><span class="summary-sig-name">create_matrix_from_model</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">users</span>,
+        <span class="summary-sig-arg">model</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.create_matrix_from_model">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="rotate_matrix"></a><span class="summary-sig-name">rotate_matrix</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">matrix</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.rotate_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="digichef.recommender.managers.RecommenderManager-class.html#get_content_based_recs" class="summary-sig-name">get_content_based_recs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">tagged_items</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</span>)</span><br />
+      For a given user tags and a dicc of item tags, returns the distances between the user and the items...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_content_based_recs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="digichef.recommender.managers.RecommenderManager-class.html#get_by_relevance_to_tags" class="summary-sig-name">get_by_relevance_to_tags</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">search_tags</span>,
+        <span class="summary-sig-arg">tagged_items</span>,
+        <span class="summary-sig-arg">min_value</span>=<span class="summary-sig-default">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</span>)</span><br />
+      For a given user tags and a dicc of item tags, returns the distances between the user and the items...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_by_relevance_to_tags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cluster_users"></a><span class="summary-sig-name">cluster_users</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">users</span>,
+        <span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">cluster_count</span>=<span class="summary-sig-default">2</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.cluster_users">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cluster_items"></a><span class="summary-sig-name">cluster_items</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">users</span>,
+        <span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">cluster_count</span>=<span class="summary-sig-default">2</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.cluster_items">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_votearray_for_user"></a><span class="summary-sig-name">get_votearray_for_user</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>)</span><br />
+      Return a list of all of the values (1,0,-1) on all votes objects of objectType</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_votearray_for_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="userSim"></a><span class="summary-sig-name">userSim</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user1</span>,
+        <span class="summary-sig-arg">user2</span>)</span><br />
+      Get the simmilarity in votes between 2 users (between 0 and 1)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.userSim">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_mean_vote_for_user"></a><span class="summary-sig-name">get_mean_vote_for_user</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_mean_vote_for_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="digichef.recommender.managers.RecommenderManager-class.html#get_pred_vote_for_user_on_item" class="summary-sig-name">get_pred_vote_for_user_on_item</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      Does the following equation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_pred_vote_for_user_on_item">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_pred_votes_for_user_on_items"></a><span class="summary-sig-name">get_pred_votes_for_user_on_items</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">items</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_pred_votes_for_user_on_items">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_recommendations_for_user_on_items"></a><span class="summary-sig-name">get_recommendations_for_user_on_items</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">number</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_recommendations_for_user_on_items">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MIN_RECOMMENDATION_VALUE"></a><span class="summary-name">MIN_RECOMMENDATION_VALUE</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MIN_SIMILARITY_VALUE"></a><span class="summary-name">MIN_SIMILARITY_VALUE</span> = <code title="0.25">0.25</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MIN_CONTENT_BASED_RECOMMENDATION_VALUE"></a><span class="summary-name">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</span> = <code title="0.25">0.25</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="get_content_based_recs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_content_based_recs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">user</span>,
+        <span class="sig-arg">tagged_items</span>,
+        <span class="sig-arg">min_value</span>=<span class="sig-default">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_content_based_recs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+For a given user tags and a dicc of item tags, returns the distances between the user and the items
+&gt;&gt;&gt; eng=RecommenderManager()
+&gt;&gt;&gt; user_tags=['a','b','c','d']
+&gt;&gt;&gt; tag_matrix={}
+&gt;&gt;&gt; tag_matrix['it1']=['z','a','c']
+&gt;&gt;&gt; tag_matrix['it2']=['b','c']
+&gt;&gt;&gt; tag_matrix['it3']=['a','r','t','v']
+&gt;&gt;&gt; eng.get_content_based_recs(user_tags,tag_matrix)
+[(7.5, 'it1'), (10.0, 'it2'), (5.0, 'it3')]
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_by_relevance_to_tags"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_by_relevance_to_tags</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">search_tags</span>,
+        <span class="sig-arg">tagged_items</span>,
+        <span class="sig-arg">min_value</span>=<span class="sig-default">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_by_relevance_to_tags">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+For a given user tags and a dicc of item tags, returns the distances between the user and the items
+&gt;&gt;&gt; eng=RecommenderManager()
+&gt;&gt;&gt; user_tags=['a','b','c','d']
+&gt;&gt;&gt; tag_matrix={}
+&gt;&gt;&gt; tag_matrix['it1']=['z','a','c']
+&gt;&gt;&gt; tag_matrix['it2']=['b','c']
+&gt;&gt;&gt; tag_matrix['it3']=['a','r','t','v']
+&gt;&gt;&gt; eng.get_content_based_recs(user_tags,tag_matrix)
+[(7.5, 'it1'), (10.0, 'it2'), (5.0, 'it3')]
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_pred_vote_for_user_on_item"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_pred_vote_for_user_on_item</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">user</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="digichef.recommender.managers-pysrc.html#RecommenderManager.get_pred_vote_for_user_on_item">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Does the following equation
+
+$\bar{r}_u + \frac{\sum_{n \subset neighbours(u)}{usersim(u,n)\mul(r_{ni}-\bar{r}_n)}}{\sum_{n \subset neighbours(u)}{usersim(u,n)}}$
+
+to get the predicted vote of a user on an item
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:23 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+body{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif; 
+	font-size:11px;
+}
+a.button{
+	background:url(/media/img/button.gif);
+	display:block;
+	color:#555555;
+	font-weight:bold;
+	height:30px;
+	line-height:29px;
+	margin-bottom:14px;
+	text-decoration:none;
+	width:191px;
+}
+a:hover.button{
+	color:#0066CC;
+}
+
+/* -------------------- */
+/* CLASSES				*/
+/* -------------------- */
+	.add{
+		background:url(/media/img/add.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.delete{
+		background:url(/media/img/delete.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.recycle{
+		background:url(/media/img/recycle.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}

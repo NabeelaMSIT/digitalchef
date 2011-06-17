@@ -1,0 +1,66 @@
+
+#p	{
+	
+	background-color:#ffffcc;
+	width:650pt;
+	
+	}
+
+#div {
+	
+	background-color:#ffcc99;
+	width:650pt;
+	
+	}
+
+form {
+	
+	text-align:center;
+	
+	}
+
+table {
+	
+	border-collapse:separate;
+	empty-cells:show;
+	
+	}
+
+div.fileinputs	{
+	
+	position:relative;
+	
+	}
+
+div.fakefile {
+	
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:1;
+	
+	}
+
+input.file {
+	
+	position:relative;
+	text-align:right;
+	
+	opacity:0;
+	z-index:2;
+	
+	}
+
+#header{
+	
+	background-color:#FF9933;
+	width:auto;
+	height: 100px;
+	clear:both;
+	background-position:top top;
+	background-repeat:none;
+	text-align: center;
+	margin:0;
+	padding:0;
+		
+}

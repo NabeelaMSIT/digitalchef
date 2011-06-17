@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{%block styles%}
+	<style type="text/css">
+	h1 {
+		text-align:center;
+	}
+	</style>
+{%endblock styles%}
+
+
+{%block content%}
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
+		<div id="waxcontainer">
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+						<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="/about" title=""><span>About Us</span></a></li>
+				</ul>
+			</div>
+        </div>
+	</div>	
+	<h1>You have logged out. Thank you for using our services.</h1>
+
+{%endblock content%}

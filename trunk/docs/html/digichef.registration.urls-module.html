@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.registration.urls</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        <a href="digichef.registration-module.html">Package&nbsp;registration</a> ::
+        Module&nbsp;urls
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.registration.urls-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module urls</h1><p class="nomargin-top"><span class="codelink"><a href="digichef.registration.urls-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+URLConf for Django user registration and authentication.
+
+If the default behavior of the registration views is acceptable to
+you, simply use a line like this in your root URLConf to set up the
+default URLs for registration::
+
+    (r'^accounts/', include('registration.urls')),
+
+This will also automatically set up the views in
+``django.contrib.auth`` at sensible default locations.
+
+But if you'd like to customize the behavior (e.g., by passing extra
+arguments to the various views) or split up the URLs, feel free to set
+up your own URL patterns for these views instead. If you do, it's a
+good idea to use the names ``registration_activate``,
+``registration_complete`` and ``registration_register`` for the
+various steps of the user-signup process.
+
+</pre>
+
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="digichef.registration.urls-module.html#urlpatterns" class="summary-name">urlpatterns</a> = <code title="patterns('', url(r'^activate/(?P&lt;activation_key&gt;\w+)/$', activate, nam\
+e= 'registration_activate'), url(r'^login/$', auth_views.login, {'temp\
+late_name': 'registration/login.html'}, name= 'auth_login'), url(r'^lo\
+gout/$', auth_views.logout, {'template_name': 'registration/logout.htm\
+l'}, name= 'auth_logout'), url(r'^password/change/$', auth_views.passw\
+ord_change, name= 'auth_password_change'), url(r'^password/change/done\
+/$', auth_views.password_change_done, name= 'auth_password_change_done\
+'), url(r'^password/reset/$', auth_views.password_reset, name= 'auth_p\
+...">patterns('', url(r'^activate/(?P&lt;activation_key&gt;<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="urlpatterns"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">urlpatterns</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+patterns('', url(r'^activate/(?P&lt;activation_key&gt;\w+)/$', activate, nam<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e= 'registration_activate'), url(r'^login/$', auth_views.login, {'temp<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+late_name': 'registration/login.html'}, name= 'auth_login'), url(r'^lo<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+gout/$', auth_views.logout, {'template_name': 'registration/logout.htm<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+l'}, name= 'auth_logout'), url(r'^password/change/$', auth_views.passw<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ord_change, name= 'auth_password_change'), url(r'^password/change/done<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+/$', auth_views.password_change_done, name= 'auth_password_change_done<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+'), url(r'^password/reset/$', auth_views.password_reset, name= 'auth_p<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:19 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

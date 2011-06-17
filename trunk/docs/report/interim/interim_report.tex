@@ -1,0 +1,32 @@
+%\documentclass[12pt]{report}
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{url}
+
+
+% This makes paragraphs with titles start on a new line
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+
+\title{G52GRP: Interim Report}
+\author{Group gp09-jqg\thanks{Dhruv Gairola, Chris Head, Rob Miles, Amy Jane Wesson and Chenjue Xu, supervised by Julie Greensmith}} % Alphabetical order
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\vfill
+
+% Add Sections here in the order they should appear, for neatness and version control, put each section in its own file and `\input` it.
+
+\section{Implementation Decisions}
+\input{implementation_decisions.tex}
+
+
+\end{document}

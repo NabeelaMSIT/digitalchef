@@ -1,0 +1,91 @@
+The final prototype of our project deals with users being able to rate recipes and receive recommendation of recipes they might like. There are a number of ways this system can be implemented with collaborative filtering technology. Collaborative filtering technology provides numerous prediction algorithms which we can use to implement such a system and acquire ratings.
+
+\subsection{About}
+
+Collaborative filtering (CF) is the process of evaluating items through the opinions of other people \footnote{Schafer J.B., Frankowski D., Herlocker J., Sen S.: Collaborative Filtering Recommender Sytems}. While the concept of collaboration is nothing new or novel- it is in human nature to take the opinions of other people- the technology itself was developed in the early 90s. The main difference between collaboration in everyday life and through the internet is that the internet allows us to utilise the opinion of large communities. 
+
+One of the earliest systems utilising the collaborative approach was Tapestry, developed by Xerox Parc\footnote{Goldberg D., Nichols D.,Oki B.M.,Terry D.: Using Collaborate Filtering To Weave An Information Tapestry. Communication of the ACM, 35(12): pp 61-70}. Tapestry stored textual information, along with metadata and annotations about this information upon, which users could apply queries.
+
+Users are recommended items based on their ratings for particular items. There are two ways a rating may be acquired- either explicitly or implicitly. Ratings are gathered explicitly when the user submits an opinion on an item, as opposed to implicit ratings which are inferred from user actions.
+
+Collaborative filtering is especially relevant to our project since it addresses the user task of helping users find recipes that he/she might like. The functionality we would like our system to have is that of constrained recommendation, as opposed to dealing with prediction (where given a particular recipe, calculate its predicted rating). Constrained recommendation is suited to our project because it allows users to input particular constraints, in this case, the recipe ingredients, and from the list of recipes generated, recommend users the recipe. Provided the numerous number of recipes in the database, and given a users limited attention span, it would be logical to return a recommendation which the user is more likely to appreciate.
+
+\subsection{System Pre-requisites}
+
+However, this technology will work effectively provided the domain it is applied to meets certain criteria. In our case, 
+
+\begin{enumerate}
+\item	The database should hold many recipes 
+If too few recipes then there is no point of recommendations.
+
+\item	There must be many ratings for a recipe
+For a useful recommendation, the recipe needs enough ratings. Assuming each user rates only few recipes, and the large database of recipes, this implies that there must be a sufficiently large amount of users.
+
+\item	Users must rate multiple recipes
+Else, we will be unable to relate recipes to each other.
+
+\end{enumerate}
+
+\subsection{Algorithms}
+
+Algorithms can either be probabilistic or non-probabilistic. Probabilistic algorithms use probability distributions to compute, for example ranked recommendation lists. However, non-probabilistic algorithms models are more popular with practitioners[]. 
+
+\subsection{Non-Probabilistic algorithms}
+
+\subsubsection{User-based Nearest Neighbour Algorithms}
+
+Predictions are generated here for users based on ratings from similar users, called neighbours. By analysing all the users neighbours, a rating can be predicted for a particular item for the user. Neighbours who are more similar to the user will have a higher weight in calculating the rating. Such similarity is elucidated by the Pearson correlation. Additionally, a neighbours personality will be adjusted for (some may be optimistic and rate consistently high and pessimistic neighbours rate consistently low even if both neighbours mean the same thing). 
+
+However, there are many caveats with this algorithm. If there are few ratings, then the matching of a users and a neighbours ratings will be biased, such that a particular neighbour will start heavily influencing the users neighbourhood. Additionally, the formula for this algorithm does not account for popular items. If numerous people agree that a particular recipe is excellent, then this data is less important than one in which users agree on a recipe of debatable taste. Moreover, naive implementations of this algorithm have linear time and memory requirements. Although, there are techniques which help alleviate such requirements (e.g. clustering) they also have their own limitations.
+
+\subsubsection{Item-based Nearest Neighbour Algorithms}
+
+ Conceptually similar to user-based nearest neighbour algorithms, this algorithm focuses on acquiring ratings based on similarities between items. Adjusted-cosine similarity is the most popular and accurate\footnote{Schafer J.B., Frankowski D., Herlocker J., Sen S.: Collaborative Filtering Recommender Sytems} way to calculate similarity between items. It is very similar to the Pearson correlation that is used with user-based nearest neighbour algorithm. There exists reports which suggest that item-based nearest neighbour algorithms give more accurate predictions compared to user-based\footnote{Sarwar B., Karypis G., Konstan J.A., Riedl J.:Item-based Collaborative Filtering Recommendation Algorithms. Proceedings of the 10th international conference on World Wide Web. (2001) Hong Kong. ACM Press p.285-295}.
+
+A big disadvantage is the complexity of the algorithm, whose size could be the square of the number of items, although, there exists ways to prune the size of the model for example using a minimum number of coratings. However, pruning causes difficulty prediction. Additionally, items cannot have too few ratings as this may lead one item to heavily influence a prediction.
+
+\subsubsection{Dimensionality Reduction Algorithms}
+
+These algorithms help reduce the complexity of very large systems with a lot of items. They map the item space to underlying tastes of the user, which diminishes the system runtime complexity. Typically, a vector based technique like vector decomposition can be used to extract these tastes. This way, a prediction can be found reasonably.
+
+However, techniques like vector decomposition require complex mathematical computation to produce the taste-space. Although heuristic methods help in updating this taste-space to avoid constant recalculation, software maintenance is hard due to this complexity. Reportedly this reduction in complexity is not a significant enough improvement.
+
+\subsection{Probabilistic Algorithms}
+
+Probabilistic algorithms employ well established concepts of probability to make predictions. Bayesian-network models provide the preferred framework to generate reliance among users or items and can be implemented as decision trees to represent probability tables, for example. 
+Expectation maximisation algorithm \footnote{Hoffmann T.: latent Semantic Models for Collaborative Filtering. ACM Transactions on Information Systems (TOIS)(2004) 22(1)} also uses Gaussian probability distributions to extract user underlying tastes.
+
+One advantage of these algorithms is that not only can they help calculate the most probable rating but they also help compute the plausibility of the rating.
+
+\subsection{General concerns about all algorithms}
+
+If there are too few ratings then none of the algorithms will yield any useful data due to biasness. There are a number of techniques that help mitigate such problems. For example you can choose to discard items with ratings which are below a certain number although, this will reduce the scope of the collaborative filtering system.
+
+\subsection{Acquiring Ratings- Design Decision}
+
+There are two way to collect ratings- explicit and implicit. Explicit ratings are usually more accurate description of the users preferences however, this requires some input from the users end. It was previously believed that the users would rarely choose to spend their time rating an item, however, experience has refuted this belief as exemplified by websites such as YouTube. Moreover, incentives can be used to entice users into rating, for example, reward points.
+
+In contrast, implicit ratings require no input from the user but they usually are not as accurate as explicit means. For example, the amount of time the user spends reading a recipe might be an implicit mean of ratings collection (the more time the user spends reading the recipe, the more he/she will likely like the recipe), but this may be inaccurate as the user may not like the recipe after reading it. However this uncertainty will be assuaged if you are able to collect a large amount of such implicit data. 
+
+\subsection{Rating Scales }
+
+Another issue is selecting rating scales. If you provide a rating scale with more options, it will provide more information about the user. That is not to say that you provide a rating scale with an unnecessarily large amount of options, which may not add value to the system. Importantly, you must consider the needs of the users. If you provide too few ratings on the scale, users may find that they cannot express their opinions accurately. 
+
+\subsection{Cold Start Issues}
+
+These issues refer to when the system is unable to provide a useful recommendation to the user due to an initial dearth of ratings. This can occur as the following scenarios:
+
+\subsubsection{New User}
+No specific predictions can be made to the new user since he/she has not made any ratings yet. This can be overcome, for example, by asking the user to rate some initial items before they can register the service or by obtaining demographic information from the user and matching his/her ratings with other users of similar demography.
+
+\subsubsection{New Item }
+The new item will initially have no ratings so it will not be recommended. This can be overcome by recommending items through non-CF techniques like content analysis \footnote{r53 Sarwar B., Karypis G., Konstan J.A., Riedl J.:Incremental SVD-Based Alogorithms for Highly Scaleable Recommender Systems. Proceedings of the Fifth International Conference on Computer and Information Technology (2002)} or random selection of new items and asking for ratings on those items.
+
+\subsubsection{New Community}
+If there are no ratings then the system cannot provide recommendations to users who seek this service. User retention will diminish. A solution is to provide rating incentives to a small subset of the community[], before expanding the service to the entire community. 
+
+\subsection{Challenges with Collaborative Filtering}
+
+The obvious challenge is that of privacy. For a system provide accurate recommendations, it is necessary as much information about the user as possible. However, if a user divulges too much information, he/she is at risk if the central database containing this information is compromised. Additionally, the user should trust the particular website to not misuse user information.
+
+Another issue is of trust. Users can purposely give artificial ratings which are not representative of their true opinions. Companies can manipulate recommender systems as well by overwhelming the system with favourable ratings of its own products \footnote{[6 BBC News Online, ``Sony Admits Using Fake Reviewer.'' June 4, 2001 \url{https://news.bbc.co.uk/1/hi/entertainment/film/1368666.stm}]}.

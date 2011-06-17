@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{%load util_tags%}
+
+{%block title%}
+	DigiChef
+{%endblock title%}
+
+{%block styles%}
+	<!-- for slideshow -->
+	<link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
+	<!-- for search box-->
+	<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+{%endblock styles%}
+
+{%block scripts%}
+	<!-- mootools framework -->
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>
+	<!-- for slideshow -->
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
+	<!-- for searchbox-->
+	<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
+	<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		//<![CDATA[
+
+		window.addEvent('load', function(){
+
+			// Autocomplete initialization
+			var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
+			t4.add('Search recipes by ingredient. Please press enter after adding each ingredient to tokenise it.');
+
+			t4.container.addClass('textboxlist-loading');													 
+			new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
+				t4.plugins['autocomplete'].setValues(r);
+				t4.container.removeClass('textboxlist-loading');
+			}}).send();														 
+
+		});
+		//]]>
+	</script> 
+{%endblock scripts%}
+
+{% block content%}	
+	<!--menubar code; modified from source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
+        <div id="waxcontainer">
+			<div id="waxnav">
+			<ul>
+				<li><a href="/" title="" class="current"><span>Home</span></a></li>
+				{%if user.is_authenticated%}
+					<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+				{%endif%}
+				<li><a href="/about" title=""><span>About Us</span></a></li>
+			</ul>
+			</div>
+        </div>
+	</div>	
+	
+	<!-- the sales pitch -->
+	<div id="join-now">
+		<p>Are you tired of ROUTINE? Are you living in CULINARY AGONY?
+		Are your meals reminiscent of PRISON FOOD?</p>
+	</div>
+	
+	<!-- promoting our service -->
+	<div id='intro'>
+	
+		<!-- just a promotional image; source: http://kashifiat.files.wordpress.com/2009/06/indian_spices.jpg-->
+		<img class="user-showcase-thumbnail " src="/media/img/spices.jpg" alt="User thumbnail"/>
+		
+		<!-- shows users the number of recipes in our database -->
+		<div class="one-of-three" id="how-many-recipes">
+			<p>We have</p>
+			<p id="num-recipes">{{number_of_recipes}}</p>
+			<p>great recipes!</p>
+		</div>
+		
+		<!-- promotional paragraph -->
+		<div class="one-of-three" id="welcome-message">
+			<p>Well then, why not SPICE UP YOUR LIFE by using DIGICHEF, the online
+			recipe robot. Simply provide what ingredients you have and watch as
+			DIGICHEF conjures recipes FOR YOU!</p>
+		</div>
+				
+		<div class='clear'></div>
+	</div>
+	
+	<div id="join-now">
+		<p>JOIN NOW for personalised recommendations. ITS FREE!</p>
+	</div>
+		
+	<div id='search-wrapper'>
+		<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
+			<div class="form_friends">
+				<input type="text" name="q" value="" id="form_tags_input_3" />
+				<input type="submit" value="Search" id="submitform" />
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+
+	</div id='container'>
+		<div id="slideshow">   
+			<span id="loading">Loading</span>
+			<ul id="pictures">
+				{%for s_recipe in slideshow_recipes%}
+				<li><a href="{{s_recipe.get_absolute_url}}"><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" class="slideshow-picture" width=438px /></a></li>
+				{%endfor%}   
+			</ul>
+
+			<ul id="menu">
+				{%for s_recipe in slideshow_recipes%}
+				<li><a href="{{s_recipe.image_url}}">{{s_recipe.title|truncatewords:5}}</a></li>
+				{%endfor%}
+			</ul>
+
+			<div id="slideshow-options">
+				<!--<h3><label for="option-auto">Auto</label> <input type="checkbox" name="auto" checked="checked" id="option-auto" /></h3>-->
+				<p name="auto" id="option-auto" />
+			</div>
+		</div><!--end slideshow-->
+
+		<div id='right-column'>
+		{%if not user.is_authenticated%}
+			<div id="signIn">
+				<form method="post" action= "{% url django.contrib.auth.views.login %}">
+					<p class="form-label">{{ loginform.username.label_tag }}</p>
+					<div class="login-field">{{ loginform.username }}</div>
+					<p class="form-label">{{ loginform.password.label_tag }}</p>
+					<div class="login-field">{{ loginform.password }}</div>
+					<input class="login-button" type="submit" value="login" />
+					<input type="hidden" name="next" value="{{ next }}" />
+					<div class='clear'></div>
+				</form>
+			</div>
+		{%endif%}
+		{%if user.is_authenticated%}
+			<div id="signIn">
+			<p>Welcome back to DigiChef,</p> 
+			<p id="hello-user">{{user.get_full_name}}</p>			
+					<div class='clear'></div>
+			</div>
+		{%endif%}
+			<div id="user-showcase">
+				<div class="photo-wrapper"  id="user-showcase-thumbnail">
+					<img class="user-thumbnail" src="/media/img/profile-pictures/{{showcase_user.username}}-300x300.jpg" alt="User thumbnail"/>
+				</div>
+				<p>Showcase User: {{showcase_user.get_full_name}}</p>
+				<p>About:{{showcase_user.get_profile.about|truncatechars:70}}</p>
+			</div>
+			<div class='clear'></div>
+		</div><!-- end right column div -->
+		<div class='clear'></div>	
+	</div>
+	
+	<div class="topspin-widget topspin-widget-combo-widget">
+<object type="application/x-shockwave-flash" height="420" width="420" id="TSWidget13093" data="http://cdn.topspin.net/widgets/combo/swf/TSComboWidget.swf?timestamp=1273702224" bgColor="#000000">
+<param value="always" name="allowScriptAccess"/>
+<param name="allowfullscreen" value="true"/>
+<param name="quality" value="high"/>
+<param name="movie" value="http://cdn.topspin.net/widgets/combo/swf/TSComboWidget.swf?timestamp=1273702224"/>
+<param name="flashvars" value="cornerDimension=10&linkColor=0x3c88a8&linkOverColor=0x3c88a8&highlightColor=0x3c88a8&accentColor=0xc1c1c1&awesm=black&widget_id=http://app.topspin.net/api/v1/artist/1135/combo_widget/13093&theme=black"/>
+<param name="wmode" value="transparent"/>
+</object>
+</div>
+{% endblock %}
