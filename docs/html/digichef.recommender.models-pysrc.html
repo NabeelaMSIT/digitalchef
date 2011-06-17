@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.recommender.models</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        <a href="digichef.recommender-module.html">Package&nbsp;recommender</a> ::
+        Module&nbsp;models
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.recommender.models-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="digichef.recommender.models-module.html">Module digichef.recommender.models</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.util.models=digichef.util.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">contenttypes</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">ContentType</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Package digichef.recommender=digichef.recommender-module.html"><a title="digichef.recommender" class="py-name" href="#" onclick="return doclink('link-3', 'recommender', 'link-3');">recommender</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module digichef.recommender.managers=digichef.recommender.managers-module.html,Module digichef.tagging.managers=digichef.tagging.managers-module.html,Module digichef.voting.managers=digichef.voting.managers-module.html"><a title="digichef.recommender.managers
+digichef.tagging.managers
+digichef.voting.managers" class="py-name" href="#" onclick="return doclink('link-4', 'managers', 'link-4');">managers</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class digichef.recommender.managers.RecommenderManager=digichef.recommender.managers.RecommenderManager-class.html"><a title="digichef.recommender.managers.RecommenderManager" class="py-name" href="#" onclick="return doclink('link-5', 'RecommenderManager', 'link-5');">RecommenderManager</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># Main recommender class. Add here whatever you need to be parametrizable: min values, weigths...</tt> </tt>
+<a name="Recommender"></a><div id="Recommender-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="Recommender-toggle" onclick="return toggle('Recommender');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="digichef.recommender.models.Recommender-class.html">Recommender</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Recommender-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Recommender-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable digichef.recommender.models.Recommender.objects=digichef.recommender.models.Recommender-class.html#objects,Variable digichef.registration.models.RegistrationProfile.objects=digichef.registration.models.RegistrationProfile-class.html#objects,Variable digichef.tagging.models.Tag.objects=digichef.tagging.models.Tag-class.html#objects,Variable digichef.tagging.models.TaggedItem.objects=digichef.tagging.models.TaggedItem-class.html#objects,Variable digichef.voting.models.Vote.objects=digichef.voting.models.Vote-class.html#objects"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-6', 'objects', 'link-6');">objects</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="digichef.recommender.managers.RecommenderManager" class="py-name" href="#" onclick="return doclink('link-7', 'RecommenderManager', 'link-5');">RecommenderManager</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">#Test class only for testing. Delete for real projects.</tt> </tt>
+<a name="TestItem"></a><div id="TestItem-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="TestItem-toggle" onclick="return toggle('TestItem');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="digichef.recommender.models.TestItem-class.html">TestItem</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestItem-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TestItem-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable digichef.recommender.models.TestItem.name=digichef.recommender.models.TestItem-class.html#name,Variable digichef.tagging.models.Tag.name=digichef.tagging.models.Tag-class.html#name,Variable digichef.tagging.tests.models.Article.name=digichef.tagging.tests.models.Article-class.html#name,Variable digichef.tagging.tests.models.Link.name=digichef.tagging.tests.models.Link-class.html#name,Variable digichef.voting.tests.models.Item.name=digichef.voting.tests.models.Item-class.html#name"><a title="digichef.recommender.models.TestItem.name
+digichef.tagging.models.Tag.name
+digichef.tagging.tests.models.Article.name
+digichef.tagging.tests.models.Link.name
+digichef.voting.tests.models.Item.name" class="py-name" href="#" onclick="return doclink('link-8', 'name', 'link-8');">name</a></tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.util.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-9', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">200</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">     </tt>
+<a name="TestItem.__unicode__"></a><div id="TestItem.__unicode__-def"><a name="L17"></a><tt class="py-lineno">17</tt> <a class="py-toggle" href="#" id="TestItem.__unicode__-toggle" onclick="return toggle('TestItem.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.models.TestItem-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestItem.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TestItem.__unicode__-expanded"><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="digichef.recommender.models.TestItem.name
+digichef.tagging.models.Tag.name
+digichef.tagging.tests.models.Article.name
+digichef.tagging.tests.models.Link.name
+digichef.voting.tests.models.Item.name" class="py-name" href="#" onclick="return doclink('link-10', 'name', 'link-8');">name</a></tt> </tt>
+</div></div><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

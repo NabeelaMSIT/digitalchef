@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block title%}
+	All Profiles - Digichef
+{%endblock title%}
+
+{%block content%}
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
+		<div id="waxcontainer">
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+						<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="/about" title=""><span>About Us</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		
+	<div id="page">
+		<h1>All Profiles</h1>
+		<ul>
+			{%for profile in object_list%}
+				<li><a href="{{profile.get_absolute_url}}">{{profile.user.get_full_name}}</a></li>
+			{%endfor%}
+		</ul>
+	</div>
+{%endblock content%}

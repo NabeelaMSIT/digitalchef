@@ -1,0 +1,67 @@
+<html>
+
+<head>
+	<title>Digi Chef</title>
+</head>
+
+<!--maybe some script and the css style file-->
+
+<body>
+	<div id="wrapper">
+		
+<div id="header">
+<form id="ssform" name="ssform" method="get" action="/subject_search">
+	
+	<a href="digichef.com" title="digichef"> logo image</a>
+	
+	<div id='headbar'>
+		<ul>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/recipes/'>Recipes</a></li>
+	</div>
+	
+	<div id="searbar">
+		<span>
+			<!--use a javascrpt-->
+			<!--
+			<div id="dsearch" class="hidesub">
+				<a href="?subject_search?cat=1001">Vagetian</a>
+				<a href="?subject_search?cat=1002">Franch</a>
+				<a href="?subject_search?cat=1003">Chinese</a>
+				<a href="?subject_search?cat=1004">Japanese</a>
+				<a href="?subject_search?cat=1005">etc</a>
+			</div>
+		-->
+		</span>
+		<span class="submit"><input class="butt" type="submit" value="Search"/></span>
+		<span><input class="j a_search_text" name="search_text" title="Ingredients" type="text" size="22" maxlength="60" value="" id="page_focus"/></span>
+</div>
+
+
+<div id="status">
+	<div id="subnav"></div>
+	
+	<span class="pl">Hello, please<a href="/login" rel="nofollow"> log in</a> or<a href="/register"> register</a></span>
+	
+</div>
+</form>
+</div>
+
+
+<div id="content">
+	<h1>Welcome to digichef</h1>
+	
+<div id"discover" cl="">
+
+
+<dl class="obs con_index">
+	{% for recipe in recipe_list %}
+	<dt><a href="/recipe/{{recipe.id}}" title="{{recipe.title}}"><img src="{{recipe.id.image}}"></a></dt>
+	
+</dl>
+
+</div>
+
+
+</body>
+</html>

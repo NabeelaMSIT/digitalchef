@@ -1,0 +1,71 @@
+<!--
+This file is a copy of the original, it isn't used by the site - Rob
+-->
+
+<html>
+
+<head>
+	
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+
+</head>
+
+<body>
+	
+<div id='main'>
+	
+<div id='header'>Digital Chef</div>
+
+<div id='sidebar'>
+	<ul>
+		<li><a href='recipes.html'>Recipes</a></li>
+</div>	
+
+
+
+<div id='mainSection'>
+	
+	<form>
+	<select name="ingredient1">
+	<option value="egg">Egg</option>
+	<option value="bacon">Bacon</option>
+	<option value="tomato">Tomato</option>
+	<option value="potato">Potato</option>
+	<option value="milk">Milk</option>
+	<option value="flavor">Flavor</option>
+	</select>
+	</form>
+
+	<form>
+	<select name="ingredient2">
+	<option value="egg">Egg</option>
+	<option value="bacon">Bacon</option>
+	<option value="tomato">Tomato</option>
+	<option value="potato">Potato</option>
+	<option value="milk">Milk</option>
+	<option value="flavor">Flavor</option>
+	</select>
+	</form>
+
+	<form>
+	<select name="ingredient3">
+	<option value="egg">Egg</option>
+	<option value="bacon">Bacon</option>
+	<option value="tomato">Tomato</option>
+	<option value="potato">Potato</option>
+	<option value="milk">Milk</option>
+	<option value="flavor">Flavor</option>
+	</select>
+	</form>
+	
+	
+	
+</div>
+
+<div id='footer'> GRP DIGI CHEF :D </div>
+
+</div>
+
+</body>
+
+</html>

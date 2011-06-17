@@ -1,0 +1,80 @@
+{%extends 'base.html'%}
+
+{%block scripts%}
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
+	
+	<!-- for voting bars-->
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			//used to load a list of recommedded recipes
+			var recommended_recipes = $('#recommended_recipes');
+			recommended_recipes.text("Loading...");
+			$.get("{%url api_recommended profile.user.username%}", {}, function(data) {
+				recommended_recipes.text("");
+				$.each(data, function(i, item){
+					var title = item.title;
+					var url = item.url;
+					var img_url = item.img_url;
+//					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
+					recommended_recipes.append('<li><span class=\"thumbnail_item\"><a href=\"'+url+'\"><span class=\"photo-wrapper recipe-thumbnail\"><img class=\"recommended_thumbnail\" src=\"'+img_url+'\" /></span>'+title+'</a></span></li>');
+				});
+			}, 'json');
+		});
+	</script>
+
+{%endblock scripts%}
+
+{%block title%}
+	{{profile.user.get_full_name}}'s Profile - Digichef
+{%endblock title%}
+
+{%block content%}
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
+		<div id="waxcontainer">
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+					<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="/about" title="/about"><span>About Us</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+
+	<div id='page'>
+		<div class="photo-wrapper clipped_image_wrapper">
+			<span></span>
+			<img src="/media/img/profile-pictures/{{profile.user.username}}-300x300.jpg" />
+		</div>
+
+		<h1>{{profile.user.get_full_name}}'s Profile</h1>
+		<h2>About me</h2>
+		{%ifequal profile.user user%}
+		<a href="/profiles/edit">Edit Profile</a>
+		{%endifequal%}
+		<p>{{profile.about}}</p>		
+		<h2>Recipes Liked</h2>
+		{%ifequal profile.user user%}
+		<a href="/recipes/new">Submit original recipe</a>
+		{%endifequal%}
+		<ul>
+		{%for recipe in recipes_liked%}
+			<li><a href="{{recipe.get_absolute_url}}">
+				<span class="photo-wrapper recipe-thumbnail">
+					<img class="recipe_thumbnail" src="{{recipe.image_url}}" />
+				</span>
+				{{recipe.title}}
+				</a>
+			</li>
+		{%endfor%}
+		</ul>
+		<h2>Recommended</h2>
+		<ul id="recommended_recipes">
+			<li>Loading recipes requires Javascript</li>
+		</ul>
+	</div>
+{%endblock content%}
+

@@ -1,0 +1,84 @@
+
+\subsection{Decision Influences}
+
+\subsubsection{Aims}
+
+The aims of version 1 have a strong influence over implementation decisions. They are as follows;
+
+\begin{enumerate}
+\item To be a complete working release of a usable piece of software
+\item To allow the team to familiarise themselves with the tools and systems to be used for later versions
+\item To explore the capabilities of those systems, to inform and inspire later decisions.
+\end{enumerate}
+
+
+\subsubsection{Design Principles}
+
+The project is being developed using a version of the Extreme Programming (XP) Methodology. XP's software development principles have an impact on the software design principles of projects developed using it.
+
+Similarly the Web Framework Django has its own set of design philosophies\footnote{\url{http://docs.djangoproject.com/en/dev/misc/design-philosophies/}} which also influence the project's design principles.
+
+The principles of XP and Django are quite similar and complement one another quite well, so it is possible to abide by both sets of principles without contradictions.
+
+Some of the XP/Django principles that have the most influence on implementation decisions are listed below;
+
+\begin{description}
+\item[DRY] Don't Repeat Yourself \\
+Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+\item[YAGNI] You Aren't Gonna Need It \\
+Always implement things when you \textit{actually} need them, never when you just \textit{foresee} that you need them
+\item[Maximise Code Reuse] If two bits of code look similar, move them out into a more general function. If two functions do a similar thing, merge them. This keeps redundancy low.
+\end{description}
+
+Both XP and Django have a strong basis in philosophy and principles, and while they both leave the developer the freedom to chose their implementation decisions, they are designed to work best with implementations that follow their principles.
+
+\subsection{Decisions}
+
+\subsubsection{The \texttt{recipes} App}
+
+Recipes are the only thing that version 1 does, so it would make some sense to simply have the project as a whole perform the recipe functions, and not use any apps. However, the functionality of the site was put in a \texttt{recipes} app for two reasons.
+Firstly, it is best practice in Django to have all code in conceptually distinct, reusable apps, to maximise potential code reuse.
+Secondly, as one of the aims of this version is to introduce the team to working with Django, and apps are a major part of Django, it made sense to use apps even if they are not strictly necessary.
+
+
+\subsubsection{URL Design}
+
+The URL design is intended to be very simple and readable. In accordance with Django URL design principles, there are no filename extensions in URLs.
+
+
+\subsubsection{Model Design}
+
+The only implementation decision of note in the model design is the use of a python \texttt{property} to handle recipe tags. A \texttt{property} is a python language construct that behaves as though it is a class variable, but behind the scenes calls a getter or setter function when it is fetched or assigned to. This was used because, although it makes the model less readable, it makes all of the code that deals with the model far more readable, and it is this code which is more complex and benefits more from simplification.
+
+\subsubsection{View Design}
+
+\paragraph{The \texttt{recipe\_list} View}
+
+There are 2 views that simply show a list of recipes:- \texttt{recipes\_all} (the view of all recipes on the system) and the results section of \texttt{search} (the view of all recipes that meet the search terms). In order to maximise code reuse, the functionality of displaying a list of recipes was taken out into a separate \texttt{recipe\_list} view, which is called by both \texttt{recipes\_all} and \texttt{search}.
+
+\paragraph{The \texttt{search} View}
+
+The search is deliberately the simplest search possible that meets the specifications. The set of results is simply the set of recipes which contain any of the ingredients searched for. This will be radically improved in later releases.
+
+\subsubsection{Template Design}
+
+\begin{samepage}
+\begin{quote}
+``The most powerful -- and thus the most complex -- part of Django's template engine is template inheritance. Template inheritance allows you to build a base ``skeleton" template that contains all the common elements of your site and defines blocks that child templates can override."\flushright-- Django's Template Documentation\footnote{\url{http://docs.djangoproject.com/en/dev/topics/templates/}}
+\end{quote}
+\end{samepage}
+
+\noindent Template Inheritance provides a good opportunity to maximise code reuse, but it was not used in version 1 in an attempt to keep template design simple.
+
+
+
+
+
+
+
+
+
+
+
+
+

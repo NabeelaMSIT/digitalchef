@@ -1,0 +1,67 @@
+<html>
+
+<head>
+	
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+
+</head>
+
+<body>
+	
+<div id='main'>
+	
+<div id='header'></div>
+
+<div id='sidebar'>
+	<ul>
+		<li><a href='/'>Home</a></li>
+		<li><a href='/recipes/'>Recipes</a></li>
+</div>	
+
+
+
+<div id='mainSection'>
+	
+	<h2>Please enter ingredients</h2>
+	
+	<form>
+	<select name="ingredient1">
+		<option value="">Nothing</option>
+		{% for ingredient in ingredients %}
+		<option value="{{ingredient.name}}">{{ingredient.name}}</option>
+		{% endfor %}
+	</select>
+		
+	<select name="ingredient2">
+		<option value="">Nothing</option>
+		{% for ingredient in ingredients %}
+		<option value="{{ingredient.name}}">{{ingredient.name}}</option>
+		{% endfor %}
+	</select>
+	
+	<select name="ingredient3">
+		<option value="">Nothing</option>
+		{% for ingredient in ingredients %}
+		<option value="{{ingredient.name}}">{{ingredient.name}}</option>
+		{% endfor %}
+	</select>
+	
+	<t>
+	<ul>
+		<li>
+			<input type="hidden" name="submitted" value="True" />
+			<input type="submit" value="Search" />
+		</li>
+	</t>
+	
+	</form>	
+	
+</div>
+
+<div id='footer'> GRP DIGI CHEF :D </div>
+
+</div>
+
+</body>
+
+</html>

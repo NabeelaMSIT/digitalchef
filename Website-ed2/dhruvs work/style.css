@@ -1,0 +1,215 @@
+body
+{
+	
+}
+
+#main
+{
+	margin: 0px auto 0px auto;
+	width:1000px;
+}
+
+#header
+{
+	width:1000px;
+	min-height:160px;
+	text-align:center;
+	clear:both;
+	background-position:top top;
+	background-repeat:none;
+	margin-top:30px;
+	font-family:Verdana;
+	padding:0;
+}
+
+#mainSection
+{
+	width:650px;
+	margin-right:350px;
+	padding:10px;
+}
+
+#mainSection h
+{
+	text-align:left;
+	color:#000000;
+	font-family:Arial;
+	font-style:bold;
+	font-size:18;
+}
+
+#mainSection t
+{
+	text-align:left;
+	font-family:Arial;
+	float:center;
+	font-size:15;
+	margin:0px 0px 0px 80px;
+}
+
+#mainSection more
+{
+	float:right;
+	color:#000;
+	font-family:Arial;
+	font-style:bold;
+	font-size:16;
+}
+
+#mainSection ul
+{
+	list-style:none;
+	float:center;
+	text-align:center;
+	margin:0;
+	padding:0;
+	border:0;
+	width:auto;
+}
+
+#mainSection li a
+{
+	font-family: Arial;
+	list-style: none;
+	padding: 3px 5px 2px 10px;
+	margin: 1px 0px 0px 80px;
+	border:0;
+	width:100px;
+	background-color:#C35617;
+	color:#ffffff;
+	text-decoration:none;
+	display:block;
+}
+
+#mainSection li a:hover 
+{
+	
+	background-color:#FBB117;
+	color: #FFFFFF;
+	text-decoration:none;
+	padding: 3px 5px 2px 10px;
+	margin: 1px 0px 0px 80px;
+	border:0;
+	width:100px;
+	display:block;
+}
+
+#slideShow
+{
+	width:620px;
+	float:left;
+	margin:10px 5px 10px 5px;
+	background-color:#fff450;
+	min-height:250px;
+}
+
+#briefRecipe
+{
+	width:620px;
+	float:left;
+	margin:10px 5px 10px 5px;
+	background-color:#f66700;
+	min-height:180px;
+}
+
+#briefRecipe h
+{
+	font-family:Arial;
+	font-size:16;
+	color:#000000;
+	text-align:left;
+	margin:15px 0px 15px 15px;
+}
+
+#briefRecipe t
+{
+	font-family:Arial;
+	font-size:13;
+	color:#000000;
+	text-align:left;
+	margin:15px 0px 15px 15px;
+}
+
+#briefRecipe imgS
+{
+	marigin:15px;
+	float:left;
+	max-width:50%;
+}
+
+#sideBar
+{
+	background-color:#330ff4;
+	float:right;
+	width:340px;
+	padding:10px 5px 10px 5px;
+}
+
+#sideBar h1
+{
+	text-align:left;
+	font-size:17;
+}
+
+#sideBar h2
+{
+	font-size:15;
+	margin:0px 0px 0px 80px;
+}
+
+#sideBar t
+{
+	font-size:15;
+	text-align:center;
+}
+
+#sideBar ul
+{
+	list-style:none;
+	float:center;
+	text-align:center;
+	margin:0;
+	padding:0;
+	border:0;
+	width:auto;
+}
+
+#sideBar li a
+{
+	font-family: Arial;
+	list-style: none;
+	padding: 3px 5px 2px 10px;
+	margin: 1px 0px 0px 0px;
+	border:0;
+	width:100px;
+	background-color:#C35617;
+	color:#ffffff;
+	text-decoration:none;
+	display:block;
+}
+
+#sideBar li a:hover 
+{
+	
+	background-color:#FBB117;
+	color: #FFFFFF;
+	text-decoration:none;
+	margin:0;
+	border:0;
+	width:100px;
+	display:block;
+}
+
+
+
+#footer
+{
+	text-align:center;
+	width:1000px;
+	height:50px;
+	clear:both;
+	background-color:#ff3405;
+	clear:both;
+	margin:10px auto 0px auto;
+}
+

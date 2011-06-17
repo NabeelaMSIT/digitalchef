@@ -1,0 +1,39 @@
+#summary Formal Meeting Minutes for 21 Oct
+
+13:30, Computer science Atrium
+
+==Present==
+
+ * Dr Greensmith
+ * Robert
+ * Dhruv
+ * Amy
+ * Jue
+
+==Apologies==
+
+ * Chris
+  * Still has job training
+
+==Events==
+
+ * Extreme Programming
+  * s.a. extremeprogramming.org
+  * s.a. Dr G's notes on XP
+ * Status reports
+ * Preliminary discusion of resource requests
+  * Dr. G offered to allow us to use a Linux machine as a development server
+ * GPL
+  * Free, open source liscence
+ * Milestone planning
+  * Do it recursively
+  * Relate to release planning
+
+==Action Points==
+
+ * Look up unit testing
+  * For next week
+ * Do as much planning as possible
+ * Amy: Photocopy/Type up Dr G's notes on XP
+  * For next meeting
+ * Get Chris up to speed

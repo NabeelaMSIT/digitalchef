@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.registration.forms.RegistrationFormNoFreeEmail</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        <a href="digichef.registration-module.html">Package&nbsp;registration</a> ::
+        <a href="digichef.registration.forms-module.html">Module&nbsp;forms</a> ::
+        Class&nbsp;RegistrationFormNoFreeEmail
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.registration.forms.RegistrationFormNoFreeEmail-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class RegistrationFormNoFreeEmail</h1><p class="nomargin-top"><span class="codelink"><a href="digichef.registration.forms-pysrc.html#RegistrationFormNoFreeEmail">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_digichef_12" name="uml_class_diagram_for_digichef_12">
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#username" title="digichef.registration.forms.RegistrationForm.username" alt="" coords="17,28,212,47"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#email" title="digichef.registration.forms.RegistrationForm.email" alt="" coords="17,47,212,65"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#password1" title="digichef.registration.forms.RegistrationForm.password1" alt="" coords="17,65,212,84"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#password2" title="digichef.registration.forms.RegistrationForm.password2" alt="" coords="17,84,212,103"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#clean_username" title="Validate that the username is alphanumeric and is not already in use." alt="" coords="17,105,212,124"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#clean" title="Verifiy that the values entered into the two password fields match." alt="" coords="17,124,212,143"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html#save" title="Create the new ``User`` and ``RegistrationProfile``, and returns the ``User``." alt="" coords="17,143,212,161"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationForm-class.html" title="Form for registering a new user account." alt="" coords="16,11,213,163"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationFormNoFreeEmail-class.html#bad_domains" title="digichef.registration.forms.RegistrationFormNoFreeEmail.bad_domains" alt="" coords="27,209,203,228"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationFormNoFreeEmail-class.html#clean_email" title="Check the supplied email address against a list of known free webmail domains." alt="" coords="27,231,203,249"/>
+<area shape="rect" href="digichef.registration.forms.RegistrationFormNoFreeEmail-class.html" title="Subclass of ``RegistrationForm`` which disallows registration with email addresses from popular free webmail services; moderately useful for preventing automated spam registrations." alt="" coords="25,192,204,251"/>
+</map>
+  <img src="uml_class_diagram_for_digichef_12.gif" alt='' usemap="#uml_class_diagram_for_digichef_12" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<pre class="literalblock">
+
+Subclass of ``RegistrationForm`` which disallows registration with
+email addresses from popular free webmail services; moderately
+useful for preventing automated spam registrations.
+
+To change the list of banned domains, subclass this form and
+override the attribute ``bad_domains``.
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clean_email"></a><span class="summary-sig-name">clean_email</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Check the supplied email address against a list of known free
+webmail domains.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.registration.forms-pysrc.html#RegistrationFormNoFreeEmail.clean_email">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="digichef.registration.forms.RegistrationForm-class.html">RegistrationForm</a></code></b>:
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#clean">clean</a></code>,
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#clean_username">clean_username</a></code>,
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#save">save</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="digichef.registration.forms.RegistrationFormNoFreeEmail-class.html#bad_domains" class="summary-name">bad_domains</a> = <code title="['aim.com', 'aol.com', 'email.com', 'gmail.com', 'googlemail.com', 'ho\
+tmail.com', 'hushmail.com', 'msn.com', 'mail.ru', 'mailinator.com', 'l\
+ive.com']">['aim.com', 'aol.com', 'email.com', 'gmail.com',<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="digichef.registration.forms.RegistrationForm-class.html">RegistrationForm</a></code></b>:
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#email">email</a></code>,
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#password1">password1</a></code>,
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#password2">password2</a></code>,
+      <code><a href="digichef.registration.forms.RegistrationForm-class.html#username">username</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="bad_domains"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">bad_domains</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+['aim.com', 'aol.com', 'email.com', 'gmail.com', 'googlemail.com', 'ho<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+tmail.com', 'hushmail.com', 'msn.com', 'mail.ru', 'mailinator.com', 'l<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ive.com']
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:23 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

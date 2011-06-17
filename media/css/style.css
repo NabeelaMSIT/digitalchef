@@ -1,0 +1,273 @@
+/* By Robert Miles and Dhruv Gairola, based on styling and design	*/
+/* by Jue and Amy													*/
+
+
+/*Below is the styling for the slideshow and general layout of each page; 
+source: http://devthought.com/blog/projects-news/2008/06/barackslideshow-an-elegant-lightweight-slideshow-script/ */
+p a { color: #BE7A40; }
+h1 { font: 20px "Georgia"; color: #666; }
+p, ul { font: 13px "Lucida Grande", "Verdana"; color: #333; }
+/*
+p, ul { font: 12px "Georgia"; color: #666; font-weight:700;}*/
+#back a { font-size: 11px; }
+#demo { margin: 40px 70px 70px; }
+h2 { font: 18px "Georgia"; color: #666; margin-top: 0; }
+h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: uppercase; font-weight: bold; }
+#slideshow-options ul { padding: 0; }
+#slideshow-options ul li { list-style-type: none; display: inline; padding-right: 0; }
+
+/* end devtthought section */
+
+.clear {
+	clear:both;
+}
+
+#wrapper {
+	width:840px;
+	margin:0 auto;
+}
+
+#top{
+	text-align:right;
+}
+
+#header {
+	padding:30px;
+}
+
+#header h1{
+	font-size:70px;
+	line-height:70px;
+	text-align: center;
+}
+
+.errorlist li {
+	color:#900;
+	
+}
+
+#search-wrapper {
+	width:820px;
+	padding:10px;
+	margin:0 auto;
+	background:#FF9900;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/*textbox stuff*/
+.form_tags {
+	margin-bottom: 10px;
+}
+
+/* Preloader for autocomplete */
+.textboxlist-loading { background: url('images/spinner.gif') no-repeat 380px center; }
+
+/* Autocomplete results styling */
+.form_friends .textboxlist-autocomplete-result { overflow: hidden; zoom: 1; }
+.form_friends .textboxlist-autocomplete-result img { float: left; padding-right: 10px; }
+
+.note { color: #666; font-size: 90%; }
+/*#footer { margin: 50px; text-align: center; }*/
+
+.form_friends {
+	display:inline;
+}
+
+.textboxlist {
+	width: 740px;
+	background:#fff;
+	display:inline;
+	float: left;
+}
+
+#submitform {
+	height:28px;
+	width:70px;
+	float:right;
+}
+
+#intro {
+	padding:5px 0px 5px 0px;
+}
+
+#intro img {
+	float:left;
+}
+
+.one-of-three {
+	float:left;
+	padding:10px;
+}
+
+#welcome-message {
+	text-align:center;
+	width:456px;
+	height:92px;
+	background:#ffcc99;
+	float:right;
+}
+
+#how-many-recipes {
+	text-align:center;
+	width:215px;
+	height:92px;
+	float:right;
+	background:#ffe297;
+}
+
+#join-now {
+	text-align:center;
+	width:840px;
+	background:#ffe297;
+}
+
+#paginate {
+	color:#cd5c5c;
+	font-size:12px;
+}
+
+#num-recipes {
+	font-size:30px;
+	line-height:30px;
+}
+
+#hello-user {
+	font-size:15px;
+	font-weight:bold;
+}
+
+#slideshow {
+	float:left;
+}
+
+#right-column {
+	float:right;
+	width:235px;
+}
+
+#signIn {
+	padding:5px;
+	background:#ffcc99;
+	height:112px;
+}
+
+.form-label {
+	font-size:10px;
+	line-height:10px;
+	padding:0.5em 0px 0.25em 0px;
+}
+
+.login-field{
+	xbackground:#f0f;
+}
+
+.login-field input{
+	width:215px;
+}
+
+.login-button {
+	margin:10px 0px 0px 0px;
+	float:right;
+}
+
+#user-showcase {
+	background:#ffe297;
+	height:145px;
+	padding:5px;
+}
+
+#user-showcase-thumbnail {
+	float:right;
+}
+
+.user-thumbnail {
+	width:100px;
+}
+
+.photo-wrapper {
+	background:#fff;
+	padding:6px;
+
+	border:1px solid #ddd;
+	border-bottom:1px solid #aaa;
+	border-right:1px solid #aaa;
+
+	position:relative;
+
+	display:inline-block;
+}
+
+.photo-wrapper span { /*The paperclip*/
+	width: 30px;
+	height: 60px;
+	display: block;
+	position: absolute;
+	top: -4px;
+	right: 50px;
+	background: url(/media/img/paperclip.png) no-repeat;
+	z-index: 3;
+}
+
+/* recip_detail styling */
+
+#page {
+	background:#ffefc6;
+	padding:30px;
+
+}
+
+#page a {
+	text-decoration: none;
+}
+
+
+#page a:hover {
+	color:orange;
+}
+
+#page h2 {
+	background:url(/media/img/ribbon-small.png) no-repeat;
+	height:44px;
+	width:173px;
+	padding:11px 10px 14px 16px;
+	margin:30px 0px 16px -41px;
+	display:inline-block;
+	font-size:26px;
+	color:#fff;
+	text-shadow: #7d1e00 0px -1px 0px;
+}
+
+#page h5 {
+	font-size:14px;
+}
+
+.clipped_image_wrapper {
+	float:right;
+	margin:-30px 0px 30px 30px;
+}
+
+#recipe_image_wrapper img{
+	width:350px;
+}
+
+.instructions {
+	line-height:1.5em;
+}
+
+.recipe-thumbnail img{
+	width:100px;
+}
+
+/*Below is the styling for the menubar; source: http://13styles.com/css-menus/wax/ */
+.orange #waxcontainer{position:relative;height:48px;background:#FFFFFF;width:840px;font-family:"Trebuchet MS",Arial,Verdana,Helvitica,sans-serif;}
+.orange #waxnav{position:relative;height:25px;font-size:11px;font-weight:bold;background:#fff url(/media/img/orangewax_bottom.gif) repeat-x bottom left;}
+.orange #waxnav ul{margin:0px;padding:0 0 4px 0;list-style-type:none;width:auto;float:left;}
+.orange #waxnav ul li{display:block;float:left;margin:0 1px;}
+.orange #waxnav ul li a{display:block;float:left;color:#FF7E00;text-decoration:none;padding:0 0 0 12px;height:21px;line-height:195%;}
+.orange #waxnav ul li a span{padding:0 12px 0 0;}
+.orange #waxnav ul li a:hover,.orange #waxnav ul li a.current{color:#fff;background:#FF9900 url(/media/img/orangewax_navtopleft.gif) no-repeat top left;}
+.orange #waxnav ul li a:hover span,.orange #waxnav ul li a.current span{display:block;width:auto;background:#FF9900 url(/media/img/orangewax_navtopright.gif) no-repeat top right;}
+/*end 13styles styling*/
+

@@ -1,0 +1,26 @@
+#summary Formal Meeting Minutes for 09 Oct
+
+People Present: Everyone
+Minutes taker: Xu Chenjue
+
+==Tasks Done==
+
+ * Determine the milestone for version one.
+ * Specify the jobs according to everyone’s interests.
+
+==Discussion==
+
+ * Check with Julie that for our milestone diagram, we could add an arrow to show that our program is depends on the overview of website. Because it is our plan, it is us who actually follow it and have the right to change it.
+ * Since we use the Django to build the database, validation is included in the design of database as the situation is different.
+ * Really think about exactly the time we get each stage, as the deadlines are coming, and people might have difficulties to catch up with the group project.
+ * Concentrate on what to do and who to do it. Moreover, do keep follow the plan, and update it as well.
+ * Think about management. At each stage or specific part of the project, we need one person do in charge (Gonna have someone to be the bad person `^_^`).
+
+==To Do==
+
+ * Look at the Django tutorial and try to run a project on your own laptop.
+ * Have a think of the design, either the website or the database.
+
+==Warm remind==
+
+ * The following meeting is at 1:15pm next Tuesday.

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+	
+<LINK REL=StyleSheet HREF="/media/css/style.css" TYPE="text/css">
+
+</head>
+
+<body>
+	
+	<div id='main'>
+	
+		<div id='header'></div>
+
+		<div id='sidebar'>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href='/recipes/'>Recipes</a></li>
+			</ul>
+		</div>	
+
+
+
+		<div id='recipeSection'>
+
+			{%if recipes.object_list%}
+				<p> Showing {{recipes.object_list|length}} of {{recipes.paginator.count}} recipes.</p>
+
+				{% for recipe in recipes.object_list %}
+					<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
+				{% endfor %}
+
+				<div class="pagination">
+					<span class="step-links">
+						{% if recipes.has_previous %}
+							<a href="?page={{ recipes.previous_page_number }}">previous</a>
+						{% endif %}
+
+						<span class="current">
+							Page {{ recipes.number }} of {{ recipes.paginator.num_pages }}.
+						</span>
+
+						{% if recipes.has_next %}
+							<a href="?page={{ recipes.next_page_number }}">next</a>
+						{% endif %}
+					</span>
+				</div>
+
+			{%else%}
+				<p>No recipes found for your search</p>
+			{%endif%}
+
+		</div>
+
+		<div id='footer'> GRP DIGI CHEF :D </div>
+
+	</div>
+
+</body>
+
+</html>
